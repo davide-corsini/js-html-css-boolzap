@@ -13,6 +13,7 @@ body{
     font-family: Arial, Helvetica, sans-serif;
     background-image: linear-gradient(to bottom, #009688 15vh,
     #dddbd1 15vh, #d2dbdc 100%); 
+    font-size: 12px;
 }
 
 ul{
@@ -60,59 +61,167 @@ ul{
 }
 
 div.menu-header-left{
-    width: 60%;
+    width: 70%;
     display: flex;
-    background-color: #ffc0cb;
     align-items: center;
     padding: 6% 3%;
 }
+div.img-header{
+    width: 50px;
+    height: 50px;
+    background-image: url('../img/Davide.jpg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+}
+
+div.title-header{
+    margin-left: 5px;
+    font-weight: 600;
+}
 
 div.header-left ul.sub-menu{
-    width: 40%;
+    width: 30%;
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
 
-div.img-header{
-    width: 50px;
-    height: 50px;
-    background-image: url('../img/avatar_1.jpg');
-    background-size: cover;
-    border-radius: 50%;
+ul.sub-menu li i{
+    color: #b1b1b1;
 }
 
-
+/**fdsaaaaaaaaa*/
 .left div.left-disclaimer{
     width: 100%;
     height: 80px;
-    background-color: blue;
+    background-color: #8edafc;
+    padding: 6% 5%;
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+}
+
+div.box-disclaimer{
+    width: 90%;
+    display: flex;
+    align-items: center;
+}
+
+div.notifications{
+    margin-left: 10px;
 }
 
 
+
+div.left-disclaimer p{
+    font-size: 10px;
+    font-weight: 300;
+    color: #6b8185;
+    text-decoration: underline;
+}
+
+
+div.circle{
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f2fbff;
+    border-radius: 50%;
+    font-size: 18px;
+}
+/**dsaffffffffff*/
 .left div.left-searchbar{
     width: 100%;
     height: 50px;
-    background-color: pink;
+    background-color:  #f2fbff;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+div.left-searchbar div.box-search{
+    width: 90%;
+    height: 40px;
+    background-color: #f2fbff;
+    display: flex;
+    align-items: center;
+    /* padding: 3% 5%; */
+}
+div.left-searchbar input{
+    margin-left: 10px;
+    padding: 5px;
+    width: 80%;
+    outline: 0;
+    border: none;
+    background-color: f2fbff;
 }
 
+/*****asdfffffff*/
+    /* width: 50px;
+    height: 50px;
+    background-image: url('../img/avatar_1.jpg');
+    background-size: cover;
+    border-radius: 50%; */
 .left div.contacts{
     width: 100%;
-    height: 100%;
+    height: calc(100% - 200px);
     flex-grow: 2;
     overflow-y: scroll;
+    background-color: #ffffff;
 }
 
 .left div.contacts ul.menu-contacts{
     width: 100%;
-    background-color: orange;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 /* debug */
+
 ul.menu-contacts li{
-    line-height: 8.6;
+    display: flex;
+    align-items: center;
+    padding: 1.5%;
 }
-/* debug */
+ul.menu-contacts li p{
+    margin-left: 10px;
+}
+ul.menu-contacts div.img-contacts{
+    width: 50px;
+    height: 50px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%; 
+} 
+div.img-contacts.ema{
+    background-image: url('../img/emanuele.jpg');
+}
+div.img-contacts.yuri{
+    background-image: url('../img/yuri.jpg');
+}
+div.img-contacts.cri{
+    background-image: url('../img/cri.jpg');
+}
+div.img-contacts.bif{
+    background-image: url('../img/bif.jpg');
+}
+div.img-contacts.papaya{
+    background-image: url('../img/papaya.jpg');
+}
+div.img-contacts.tina{
+    background-image: url('../img/tina.jpeg');
+}
+div.img-contacts.jack{
+    background-image: url('../img/jack.jpg');
+}
+
+
+
+
 
 /* end left layout each container */
 
@@ -123,8 +232,41 @@ ul.menu-contacts li{
     width: 100%;
     height: 70px;
     background-color: #eaeaea;
-;
+    padding: 3% 2%;
+    display: flex;
+    align-items: center;
 }
+
+div.box-selected{
+    width: 90%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.img-contact{
+    width: 50px;
+    height: 50px;
+    background-image: url('../img/emanuele.jpg');
+    background-size: cover;
+    border-radius: 50%;
+}
+
+.title-chat{
+    margin-left: 10px;
+}
+div.open-icon{
+    width: 10%;
+}
+ul.menu-open-icon{
+    display: flex;
+    justify-content: space-around;
+}
+
+ul.menu-open-icon li i{
+    color: #b1b1b1;
+}
+
 
 .right div.container-message{
     width: 100%;
@@ -133,21 +275,43 @@ ul.menu-contacts li{
     overflow-y: scroll;
 }
 
-/* debug */
-ul.menu-messages li{
-    line-height: 8.6;
-}
-/* debug */
 
 .right div.container-message div.messages{
-    width: 100%;
+    width: 85%;
     height: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+div.messages div.received{
+    align-self: flex-start;
+    background-color: white;
+    padding: 1%;
+    border-radius: 5px;
+}
+
+div.messages div.sent{
+    align-self: flex-end;
+    background-color: #dcf8c6;
+    padding: 1%;
+    border-radius: 5px;
 }
 
 .right div.footer-message{
     width: 100%;
     height: 70px;
     background-color: #f3eeea;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
+.right div.footer-message input{
+    width: 90%;
+    padding: 12px 5px;
+    outline: 0;
+}
+
+
 
 /* end right layout each container */
