@@ -184,7 +184,9 @@ div.left-searchbar input{
 
 ul.menu-contacts li{
     display: flex;
-    align-items: center;
+    width: 100%;
+    background-color: orange;
+    border: 2px solid red;
     padding: 1.5%;
 }
 ul.menu-contacts li p{
@@ -282,6 +284,45 @@ ul.menu-open-icon li i{
     margin: auto;
     display: flex;
     flex-direction: column;
+}
+.check{
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.check i{
+    color: #218cf2;
+}
+
+.time{
+    margin-right: 10px;
+    font-size: 10px;
+    color: #6b8185;
+}
+
+.time-received{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    font-size: 10px;
+    color: #6b8185;
+}
+
+.check .first{
+    position: absolute;
+    right: 5px;
+    font-size: 9px;
+}
+
+.check .second{
+    font-size: 8px;
+}
+
+.check.last i{
+    color: #57a20f;
 }
 
 div.messages div.received{
