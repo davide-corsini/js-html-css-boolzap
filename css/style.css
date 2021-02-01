@@ -185,13 +185,9 @@ div.left-searchbar input{
 ul.menu-contacts li{
     display: flex;
     width: 100%;
-    background-color: orange;
-    border: 2px solid red;
     padding: 1.5%;
 }
-ul.menu-contacts li p{
-    margin-left: 10px;
-}
+
 ul.menu-contacts div.img-contacts{
     width: 50px;
     height: 50px;
@@ -199,6 +195,39 @@ ul.menu-contacts div.img-contacts{
     background-position: center;
     border-radius: 50%; 
 } 
+.open-contacts{
+    width: 20%;
+}
+.message-open-chat{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+}
+.name-chat{
+    display: flex;
+    justify-content: space-between;
+}
+
+.text{
+    width: 100%;
+    height: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.spunta{
+    position: relative;
+}
+.spunta i.first{
+    position: absolute;
+    right: 5px;
+}
+.spunta i.first,
+.spunta i.second{
+    color: #57a20f;
+}
+
 div.img-contacts.ema{
     background-image: url('../img/emanuele.jpg');
 }
