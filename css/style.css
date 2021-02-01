@@ -15,7 +15,9 @@ body{
     #dddbd1 15vh, #d2dbdc 100%); 
 }
 
-
+ul{
+    list-style: none;
+}
 
 .container{
     width: 80%;
@@ -23,12 +25,12 @@ body{
     height: 95%;
     margin: 0 auto;
     display: flex;
+    z-index: 2;
 }
 
 .left{
     width: 32%;
     height: 100%;
-    border: 1px solid black;
     display: flex;
     flex-direction: column;
     overflow-y: hidden;
@@ -39,7 +41,7 @@ body{
 .right{
     width: 68%;
     height: 100%;
-    border: 1px solid aqua;
+    border-left: 1px solid #dbdbdb;
     display: flex;
     flex-direction: column;
     overflow-y: hidden;
@@ -53,13 +55,38 @@ body{
 .left div.header-left{
     width: 100%;
     height: 70px;
-    background-color: green;
+    background-color: #eaeaea;
+    display: flex;
 }
+
+div.menu-header-left{
+    width: 60%;
+    display: flex;
+    background-color: #ffc0cb;
+    align-items: center;
+    padding: 6% 3%;
+}
+
+div.header-left ul.sub-menu{
+    width: 40%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+div.img-header{
+    width: 50px;
+    height: 50px;
+    background-image: url('../img/avatar_1.jpg');
+    background-size: cover;
+    border-radius: 50%;
+}
+
 
 .left div.left-disclaimer{
     width: 100%;
     height: 80px;
-    background-color: red;
+    background-color: blue;
 }
 
 
@@ -73,19 +100,20 @@ body{
     width: 100%;
     height: 100%;
     flex-grow: 2;
-    min-height: 300px;
-    background-color: aqua;
     overflow-y: scroll;
 }
 
 .left div.contacts ul.menu-contacts{
-    height: 70%;
+    width: 100%;
     background-color: orange;
 }
 
-ul.menu-messages li{
+/* debug */
+ul.menu-contacts li{
     line-height: 8.6;
 }
+/* debug */
+
 /* end left layout each container */
 
 
@@ -94,27 +122,32 @@ ul.menu-messages li{
 .right div.header-right{
     width: 100%;
     height: 70px;
-    background-color: brown;
+    background-color: #eaeaea;
+;
 }
 
 .right div.container-message{
     width: 100%;
-    height: 100%;
-    flex-grow: 2;
-    background-color: black;
+    height: calc(100% - 70px);
+    background-image: url('../img/mine.jpg');
     overflow-y: scroll;
 }
 
+/* debug */
+ul.menu-messages li{
+    line-height: 8.6;
+}
+/* debug */
 
 .right div.container-message div.messages{
     width: 100%;
-    background-color: orange;
+    height: 100%;
 }
 
 .right div.footer-message{
     width: 100%;
     height: 70px;
-    background-color: brown;
+    background-color: #f3eeea;
 }
 
 /* end right layout each container */
