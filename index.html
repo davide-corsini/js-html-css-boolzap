@@ -95,9 +95,9 @@
 
         <!-- .container right -->
         <div class="right">
-            <div class="header-right">
+            <div  v-for='element in openChat' class="header-right">
                 <div  class="box-selected">
-                    <img class="img-contact" ></img>
+                    <img class="img-contact" :src="element.src" ></img>
                     <div class="title-chat">
                         <p style="font-weight: 600;">Emanuele</p>
                         <p style="color: #b1b1b1;">Ultimo accesso...</p>

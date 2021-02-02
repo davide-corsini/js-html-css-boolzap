@@ -8,6 +8,14 @@ var app = new Vue({
                 visible: true
             }
         ],
+        openChat: [
+            {
+                name: 'Emanuele',
+                src: 'img/ema.jpg',
+                visible: true
+            }
+        ],
+
         contacts: [
             {
                 name: 'Emanuele',
