@@ -8,19 +8,20 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
         integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
         crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
 </head>
 <body>
     <!--contenitore principale-->
-    <div class="container">
+    <div id="app" class="container">
         <!--{container left-->
         <div class="left">
             <!-- header-left -->
             <div class="header-left">
-                <div class="menu-header-left">
-                    <div class="img-header">
-                    </div>
+                <div v-for="element in activeContact" class="menu-header-left">
+                    <img class="img-header" :src="element.src">
+                    </img>
                     <div class="title-header">
-                        Nome Utente
+                        {{element.name}}
                     </div>
                 </div>
                 <ul class="sub-menu">
@@ -57,154 +58,34 @@
             <!-- contacts -->
             <div class="contacts">
                 <ul class="menu-contacts">
-                    
-                    <li>
+                    <!-- first chat -->
+                    <li v-for='(elemento, indice) in contacts' >
                         <div class="open-contacts">
-                            <div class="img-contacts ema"></div>
+                            <!-- :style="{'text-decoration': decoration}" -->
+                            <img  class="img-contacts" :src="elemento.src" >
+                                
+                            </img>
                         </div>
                         <div class="message-open-chat"> 
                             <div class="name-chat">
-                                <p>Emanuele</p>
+                                <p>{{elemento.name}}</p>
                                 <div>
                                     12.55
                                 </div>
                             </div>
                             <div class="text">
-                                Per il resto tutto bene? Stai sul codice?
                                 <div class="spunta">
                                     <i class="fas fa-check first"></i>
                                     <i class="fas fa-check second"></i>
                                 </div>
+                                Per il resto tutto bene? Stai sul codice?
                             </div>
                             
                         </div>
                     </li>
-                    <li>
-                        <div class="open-contacts">
-                            <div class="img-contacts yuri"></div>
-                        </div>
-                        <div class="message-open-chat">
-                            <div class="name-chat">
-                                <p>Yuri</p>
-                                <div>
-                                    10.55
-                                </div>
-                            </div>
-                            <div class="text">
-                                Stai in giro con i butei?
-                                <div class="spunta">
-                                    <i class="fas fa-check first"></i>
-                                    <i class="fas fa-check second"></i>
-                                </div>
-                            </div>
-                        
-                        </div>
-                        <!-- <div class="img-contacts yuri">
 
-                    </div><p>Yuri</p></li> -->
-                    <li><div class="open-contacts">
-                        <div class="img-contacts cri"></div>
-                    </div>
-                    <div class="message-open-chat">
-                        <div class="name-chat">
-                            <p>Cristiano</p>
-                            <div>
-                                12.55
-                            </div>
-                        </div>
-                        <div class="text">
-                            Noleggiato il pullman per Lugano?
-                            <div class="spunta">
-                                <i class="fas fa-check first"></i>
-                                <i class="fas fa-check second"></i>
-                            </div>
-                        </div>
+                    <!-- second chat -->
                     
-                    </div></li>
-
-                    <li>
-                        <div class="open-contacts">
-                            <div class="img-contacts bif"></div>
-                        </div>
-                        <div class="message-open-chat">
-                            <div class="name-chat">
-                                <p>Jack Bif</p>
-                                <div>
-                                    12.55
-                                </div>
-                            </div>
-                            <div class="text">
-                                Hai scritto a quella???
-                                <div class="spunta">
-                                    <i class="fas fa-check first"></i>
-                                    <i class="fas fa-check second"></i>
-                                </div>
-                            </div>
-                        
-                        </div>
-                    </li>
-                    <li>
-                        <div class="open-contacts">
-                            <div class="img-contacts papaya"></div>
-                        </div>
-                        <div class="message-open-chat">
-                            <div class="name-chat">
-                                <p>Papaya</p>
-                                <div>
-                                    12.55
-                                </div>
-                            </div>
-                            <div class="text">
-                                Non fare il genovese, devi offrire un ape
-                                <div class="spunta">
-                                    <i class="fas fa-check first"></i>
-                                    <i class="fas fa-check second"></i>
-                                </div>
-                            </div>
-                        
-                        </div>
-                    </li>
-                    <li>
-                        <div class="open-contacts">
-                            <div class="img-contacts tina"></div>
-                        </div>
-                        <div class="message-open-chat">
-                            <div class="name-chat">
-                                <p>Tina</p>
-                                <div>
-                                    12.55
-                                </div>
-                            </div>
-                            <div class="text">
-                                Conquisteremo il mondo tinaaaa
-                                <div class="spunta">
-                                    <i class="fas fa-check first"></i>
-                                    <i class="fas fa-check second"></i>
-                                </div>
-                            </div>
-                        
-                        </div>
-                    </li>
-                    <li><div class="open-contacts">
-                        <div class="img-contacts jack"></div>
-                    </div>
-                    <div class="message-open-chat">
-                        <div class="name-chat">
-                            <p>Jack Teacher</p>
-                            <div>
-                                12.55
-                            </div>
-                        </div>
-                        <div class="text">
-                            Non mi funziona Javascript
-                            <div class="spunta">
-                                <i class="fas fa-check first"></i>
-                                <i class="fas fa-check second"></i>
-                            </div>
-                        </div>
-                    
-                    </div>
-                    </li>
                 </ul>
             </div>
             <!-- /contacts -->
@@ -212,14 +93,14 @@
         <!-- {/container left -->
 
 
-        <!-- *container right -->
+        <!-- .container right -->
         <div class="right">
             <div class="header-right">
-                <div class="box-selected">
-                    <div class="img-contact"></div>
+                <div  class="box-selected">
+                    <img class="img-contact" ></img>
                     <div class="title-chat">
-                        <p>Emanuele</p>
-                        <p>Ultimo accesso...</p>
+                        <p style="font-weight: 600;">Emanuele</p>
+                        <p style="color: #b1b1b1;">Ultimo accesso...</p>
                     </div>
                 </div>
                 <div class="open-icon">
@@ -237,38 +118,39 @@
                 </div>
             </div>
 
+            <!--*CHAT-->
             <div class="container-message">
                 <div class="messages">
-                    <div class="received">ciao dave
+                    <div class="message received">ciao dave
                         <div class="time-received">
                             11.56
                         </div>
                     </div>
-                    <div class="sent">ciao lele
+                    <div class="message sent">ciao lele
                         <div class="check">
                             <div class="time">12.55</div>
                             <i class="fas fa-check first"></i>
                             <i class="fas fa-check second"></i>
                         </div>
                     </div>
-                    <div class="received">senti una cosa, quanti anni mi dai?
+                    <div class="message received">senti una cosa, quanti anni mi dai?
                         <div class="time-received">
                             11.56
                         </div>
                     </div>
-                    <div class="sent">ma secondo me 46
+                    <div class="message sent">ma secondo me 46
                         <div class="check">
                             <div class="time">12.55</div>
                             <i class="fas fa-check first"></i>
                             <i class="fas fa-check second"></i>
                         </div>
                     </div>
-                    <div class="received">che gran fijo de na mignotta
+                    <div class="message received">che gran fijo de na mignotta
                         <div class="time-received">
                             11.56
                         </div>
                     </div>
-                    <div class="sent"><i style="color: red;" class="fas fa-heart"></i>
+                    <div class="message sent"><i style="color: red;" class="fas fa-heart"></i>
         
                         <div class="check">
                             <div class="time">12.55</div>
@@ -276,28 +158,36 @@
                             <i class="fas fa-check second"></i>
                         </div>
                     </div>
-                    <div class="received"><i style="color: red;" class="fas fa-heart"></i>
-                    <div class="time-received">
+                    <div class="message received"><i style="color: red;" class="fas fa-heart"></i>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam minima atque consequatur inventore quae eius amet quod commodi, mollitia blanditiis, aperiam deleniti necessitatibus voluptates harum quibusdam nulla tempore voluptatem tempora.
+                        uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu
+                        <div class="time-received">
                         11.56
                     </div></div>
-                    <div class="sent">Per il resto tutto bene? Stai sul codice?
+                    <div class="message sent">Per il resto tutto bene? Stai sul codice?
+                        aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                        aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste sapiente nihil, suscipit quam harum reiciendis provident tempora nostrum expedita quis autem, nobis consequatur eum aspernatur iure illo debitis, recusandae ut.
                         <div class="check last">
                             <div class="time">12.55</div>
                             <i class="fas fa-check first"></i>
                             <i class="fas fa-check second"></i>
                         </div>
                     </div>
+                    <div class="message sent">aooooooooooooo anvedi</div>
                 </div>
             </div>
+            <!--*CHAT-->
 
-            
+        <!--_FOOT-->
             <div class="footer-message">
                 <i class="fas fa-smile"></i>
                 <input type="text" placeholder="Scrivi un messaggio">
                 <i class="fas fa-microphone"></i>
             </div>
+            <!--_/FOOT-->
         </div>
-        <!-- */container right -->
+        <!--./CONTAINER RIGHT-->
     </div>
     <!--/contenitore principale-->
     <script src="js/script.js"></script>

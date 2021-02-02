@@ -66,12 +66,9 @@ div.menu-header-left{
     align-items: center;
     padding: 6% 3%;
 }
-div.img-header{
+img.img-header{
     width: 50px;
     height: 50px;
-    background-image: url('../img/Davide.jpg');
-    background-size: cover;
-    background-position: center;
     border-radius: 50%;
 }
 
@@ -148,7 +145,6 @@ div.left-searchbar div.box-search{
     background-color: #f2fbff;
     display: flex;
     align-items: center;
-    /* padding: 3% 5%; */
 }
 div.left-searchbar input{
     margin-left: 10px;
@@ -160,11 +156,7 @@ div.left-searchbar input{
 }
 
 /*****asdfffffff*/
-    /* width: 50px;
-    height: 50px;
-    background-image: url('../img/avatar_1.jpg');
-    background-size: cover;
-    border-radius: 50%; */
+
 .left div.contacts{
     width: 100%;
     height: calc(100% - 200px);
@@ -188,7 +180,7 @@ ul.menu-contacts li{
     padding: 1.5%;
 }
 
-ul.menu-contacts div.img-contacts{
+ul.menu-contacts img.img-contacts{
     width: 50px;
     height: 50px;
     background-size: cover;
@@ -207,17 +199,20 @@ ul.menu-contacts div.img-contacts{
     display: flex;
     justify-content: space-between;
 }
-
+.name-chat p{
+    font-weight: 600;
+}
 .text{
     width: 100%;
     height: 30px;
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     align-items: flex-end;
 }
 
 .spunta{
     position: relative;
+    margin-right: 10px;
 }
 .spunta i.first{
     position: absolute;
@@ -225,7 +220,12 @@ ul.menu-contacts div.img-contacts{
 }
 .spunta i.first,
 .spunta i.second{
-    color: #57a20f;
+    color: #b1b1b1;
+}
+
+.spunta i.first.read,
+.spunta i.second.read{
+    color: #218cf2;
 }
 
 div.img-contacts.ema{
@@ -275,10 +275,9 @@ div.box-selected{
     align-items: center;
 }
 
-.img-contact{
+img.img-contact{
     width: 50px;
     height: 50px;
-    background-image: url('../img/emanuele.jpg');
     background-size: cover;
     border-radius: 50%;
 }
@@ -301,7 +300,7 @@ ul.menu-open-icon li i{
 
 .right div.container-message{
     width: 100%;
-    height: calc(100% - 70px);
+    height: calc(100vh - 70px);
     background-image: url('../img/mine.jpg');
     overflow-y: scroll;
 }
@@ -309,11 +308,21 @@ ul.menu-open-icon li i{
 
 .right div.container-message div.messages{
     width: 85%;
-    height: 100%;
+    height: 100vh;
     margin: auto;
     display: flex;
     flex-direction: column;
+    padding: 1% 0;
 }
+.message{
+    min-width: 20%;
+    max-width: 60%;
+    /* mi serve per mandare a capo */
+    /* word-break: break-word; */
+    word-break: break-all;
+    margin-bottom: 8px;
+}
+
 .check{
     width: 100%;
     position: relative;
