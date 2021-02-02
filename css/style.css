@@ -190,6 +190,11 @@ ul.menu-contacts img.img-contacts{
 .open-contacts{
     width: 20%;
 }
+
+ul.menu-contacts li:hover{
+    background-color: red;
+}
+
 .message-open-chat{
     width: 80%;
     display: flex;
@@ -387,10 +392,17 @@ div.messages div.sent{
 }
 .right div.footer-message input{
     width: 90%;
-    padding: 12px 5px;
+    padding: 8px 8px;
     outline: 0;
+    border-radius: 20px;
+    border: none;
 }
-
-
+.footer-message i{
+    color: #6b8185;
+}
+#ruota{
+    transform: rotate(270deg);
+    font-size: 12px;
+}
 
 /* end right layout each container */

@@ -18,7 +18,7 @@
             <!-- header-left -->
             <div class="header-left">
                 <div v-for="element in activeContact" class="menu-header-left">
-                    <img class="img-header" :src="element.src">
+                    <img class="img-header" :src="element.src" alt="contatti-logo">
                     </img>
                     <div class="title-header">
                         {{element.name}}
@@ -69,16 +69,18 @@
                         <div class="message-open-chat"> 
                             <div class="name-chat">
                                 <p>{{elemento.name}}</p>
-                                <div>
-                                    12.55
+                                <div v-for="(key, index) in elemento.message" >
+                                        <span v-if="index == elemento.message.length-1">{{key.date}} </span>
+
+                                
                                 </div>
                             </div>
-                            <div class="text">
-                                <div class="spunta">
+                            <div  v-for="(key, index) in elemento.message" v-if="index == elemento.message.length-1" class="text">
+                                <div  class="spunta">
                                     <i class="fas fa-check first"></i>
                                     <i class="fas fa-check second"></i>
                                 </div>
-                                Per il resto tutto bene? Stai sul codice?
+                                {{key.text}}
                             </div>
                             
                         </div>
@@ -182,6 +184,7 @@
         <!--_FOOT-->
             <div class="footer-message">
                 <i class="fas fa-smile"></i>
+                <i id="ruota" class="fas fa-paperclip"></i>
                 <input type="text" placeholder="Scrivi un messaggio">
                 <i class="fas fa-microphone"></i>
             </div>

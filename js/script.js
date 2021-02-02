@@ -33,8 +33,8 @@ var app = new Vue({
                         status: 'sent'
                     },
                     {
-                        date: '10/01/2020 15:30:55',
-                        text: 'staiiii',
+                        date: '10/01/2020 15:58:55',
+                        text: 'Dajeeeeee',
                         status: 'sent'
                     },
                 ]
@@ -56,7 +56,7 @@ var app = new Vue({
                     },
                     {
                         date: '10/01/2020 15:30:55',
-                        text: 'staiiii',
+                        text: 'Stai con i butei',
                         status: 'sent'
                     },
                 ]
@@ -78,7 +78,7 @@ var app = new Vue({
                     },
                     {
                         date: '10/01/2020 15:30:55',
-                        text: 'staiiii',
+                        text: 'Noleggiato il pullman per Lugano',
                         status: 'sent'
                     },
                 ]
@@ -100,7 +100,7 @@ var app = new Vue({
                     },
                     {
                         date: '10/01/2020 15:30:55',
-                        text: 'staiiii',
+                        text: 'Sei uscito con la tipa?',
                         status: 'sent'
                     },
                 ]
@@ -122,7 +122,7 @@ var app = new Vue({
                     },
                     {
                         date: '10/01/2020 15:30:55',
-                        text: 'staiiii',
+                        text: 'Non fare il genovese, offri l\'ape',
                         status: 'sent'
                     },
                 ]
@@ -133,20 +133,20 @@ var app = new Vue({
                 visible: true,
                 message: [
                     {
-                        date: '10/01/2020 15:30:55',
+                        date: '15:30:55',
                         text: 'ciao',
                         status: 'sent'
                     },
                     {
-                        date: '10/01/2020 15:30:55',
+                        date: '15:30:55',
                         text: 'come',
                         status: 'sent'
                     },
                     {
-                        date: '10/01/2020 15:30:55',
-                        text: 'staiiii',
+                        date: '15:30:55',
+                        text: 'Conquisteremo il mondo',
                         status: 'sent'
-                    },
+                    }
                 ]
             },
             {
@@ -154,7 +154,21 @@ var app = new Vue({
                 src: 'img/jack.jpg',
                 visible: true,
                 message: [
-
+                    {
+                        date: '15:30:55',
+                        text: 'ciao',
+                        status: 'sent'
+                    },
+                    {
+                        date: '15:30:55',
+                        text: 'come',
+                        status: 'sent'
+                    },
+                    {
+                        date: '18:30:55',
+                        text: 'Non mi funziona Javascript',
+                        status: 'sent'
+                    }
                 ]
             }
         ]
