@@ -15,7 +15,9 @@ var app = new Vue({
                 visible: true
             }
         ],
-
+        contatore: 0,
+        resultName: 'Emanuele',
+        resultImg: 'img/ema.jpg',
         contacts: [
             {
                 name: 'Emanuele',
@@ -176,15 +178,29 @@ var app = new Vue({
     methods:{
         contactSelected(indexFunzione){
             //controlla array e metti tutto a falso 
-            this.contacts.forEach(element => {
-                if(element.visible == true){
-                    element.visible = false;
-                }
-                //dopo che hai messo a falso, dai vero a quello cliccato
+            // this.contacts.forEach(element => {
+            //     if(element.visible == true){
+            //         element.visible = false;
+            //     }
+            //     //dopo che hai messo a falso, dai vero a quello cliccato
                 
-            });
-            this.contacts[indexFunzione].visible = true;
+            // });
+            // this.contacts[indexFunzione].visible = true;
+            // //passo qua dentro la funzione per evitare di ripetere un altro click in html
+            // this.imgContact();
+            this.contatore = indexFunzione;
         }
+        // imgContact(){
+        //     this.contacts.forEach(element => {
+        //         if (element.visible == true) {
+        //             this.resultName = element.name;
+        //             this.resultImg = element.src;
+        //         }
+        //         //dopo che hai messo a falso, dai vero a quello cliccato
+        //         return this.resultImg + this.resultName;
+        //     });
+
+        // }
     }
     
 });

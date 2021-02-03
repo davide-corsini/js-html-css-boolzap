@@ -102,9 +102,10 @@
         <div class="right">
             <div v-for='element in openChat' class="header-right">
                 <div class="box-selected">
-                    <img class="img-contact" :src="element.src"></img>
+                    <img class="img-contact" :src="contacts[contatore].src"></img>
                     <div class="title-chat">
-                        <p style="font-weight: 600;">Emanuele</p>
+                        <p style="font-weight: 600;">
+                        {{contacts[contatore].name}}</p>
                         <p style="color: #b1b1b1;">Ultimo accesso...</p>
                     </div>
                 </div>
@@ -125,9 +126,9 @@
 
             <!--*CHAT-->
             <div class="container-message">
-                <div class="messages" v-for="(messaggi,index) in contacts" v-if="messaggi.visible == true" >
+                <div class="messages"  v-for="(messaggi,index) in contacts">
                     <!--il v if é relativo alla funzione contactSelected-->
-                    <div v-for="(key, index) in messaggi.message" :class="(key.status == 'sent') ? 'sent' : 'received'">
+                    <div v-for="(key, index) in contacts[contatore].message" :class="(key.status == 'sent') ? 'sent' : 'received'">
                         {{ key.text }}
                         <div class="time-received">
                             {{ key.date }}
