@@ -50,7 +50,7 @@
             <div class="left-searchbar">
                 <div class="box-search">
                     <i class="fas fa-search"></i>
-                    <input type="text" placeholder="Cerca o inizia una nuova chat">
+                    <input v-model="filtro" type="text" placeholder="Cerca o inizia una nuova chat">
 
                 </div>
 
@@ -66,24 +66,18 @@
 
                             <img class="img-contacts" :src="elemento.src">
 
-                            </img>
                         </div>
                         <div class="message-open-chat">
                             <div class="name-chat">
                                 <p>{{elemento.name}}</p>
-                                <div v-for="(key, index) in elemento.message">
-                                    <span v-if="index == elemento.message.length-1">{{key.date}} </span>
-
-
-                                </div>
                             </div>
-                            <div v-for="(key, index) in elemento.message" v-if="index == elemento.message.length-1"
-                                class="text">
+                            <div class="text">
                                 <div class="spunta">
                                     <i class="fas fa-check first"></i>
                                     <i class="fas fa-check second"></i>
                                 </div>
-                                {{key.text}}
+                                {{elemento.message[elemento.message.length-1].text}}
+
                             </div>
 
                         </div>
@@ -126,9 +120,9 @@
 
             <!--*CHAT-->
             <div class="container-message">
-                <div class="messages"  v-for="(messaggi,index) in contacts">
+                <div class="messages">
                     <!--il v if é relativo alla funzione contactSelected-->
-                    <div v-for="(key, index) in contacts[contatore].message" :class="(key.status == 'sent') ? 'sent' : 'received'">
+                    <div class="message" v-for="(key, index) in contacts[contatore].message" :class="(key.status == 'sent') ? 'sent' : 'received'">
                         {{ key.text }}
                         <div class="time-received">
                             {{ key.date }}
@@ -193,7 +187,7 @@
             <div class="footer-message">
                 <i class="fas fa-smile"></i>
                 <i id="ruota" class="fas fa-paperclip"></i>
-                <input type="text" placeholder="Scrivi un messaggio">
+                <input v-model="prova" id="input-enter" @keyup.enter="addMessage" type="text" placeholder="Scrivi un messaggio">
                 <i class="fas fa-microphone"></i>
             </div>
             <!--_/FOOT-->

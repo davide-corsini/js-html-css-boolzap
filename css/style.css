@@ -192,7 +192,8 @@ ul.menu-contacts img.img-contacts{
 }
 
 ul.menu-contacts li:hover{
-    background-color: red;
+    background-color: #f2fbff;
+    cursor: pointer;
 }
 
 .message-open-chat{
@@ -300,7 +301,7 @@ ul.menu-open-icon li i{
     /* mi serve per mandare a capo */
     /* word-break: break-word; */
     word-break: break-all;
-    margin-bottom: 8px;
+    margin-top: 20px;
 }
 
 .check{
@@ -371,6 +372,11 @@ div.messages div.sent{
     outline: 0;
     border-radius: 20px;
     border: none;
+}
+
+#input-enter{
+    word-break: break-all;
+    margin-bottom: 8px;
 }
 .footer-message i{
     color: #6b8185;

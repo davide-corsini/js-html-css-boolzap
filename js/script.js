@@ -15,6 +15,8 @@ var app = new Vue({
                 visible: true
             }
         ],
+        filtro: '',
+        prova: '',
         contatore: 0,
         resultName: 'Emanuele',
         resultImg: 'img/ema.jpg',
@@ -177,30 +179,71 @@ var app = new Vue({
     },
     methods:{
         contactSelected(indexFunzione){
-            //controlla array e metti tutto a falso 
-            // this.contacts.forEach(element => {
-            //     if(element.visible == true){
-            //         element.visible = false;
-            //     }
-            //     //dopo che hai messo a falso, dai vero a quello cliccato
-                
-            // });
-            // this.contacts[indexFunzione].visible = true;
-            // //passo qua dentro la funzione per evitare di ripetere un altro click in html
-            // this.imgContact();
             this.contatore = indexFunzione;
-        }
-        // imgContact(){
-        //     this.contacts.forEach(element => {
-        //         if (element.visible == true) {
-        //             this.resultName = element.name;
-        //             this.resultImg = element.src;
-        //         }
-        //         //dopo che hai messo a falso, dai vero a quello cliccato
-        //         return this.resultImg + this.resultName;
-        //     });
 
-        // }
+        },
+        addMessage(){
+            if(this.prova.length > 0){
+                const newMessage = {
+                    date: '15:30:55',
+                    text: this.prova,
+                    status: 'sent'
+                };
+                this.contacts[this.contatore].message.push(newMessage);
+                this.prova = '';
+    
+                setTimeout(() => {
+                    this.receivedMessage()
+                }, 3000);
+            }     
+        },
+        receivedMessage(){
+            const mexRicevuto = {
+                date: '15:30:55',
+                text: 'boolean',
+                status: 'received'
+            }
+            this.contacts[this.contatore].message.push(mexRicevuto);
+            this.prova = '';
+        },
+        filtroDati(){
+            
+        }
     }
     
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+//controlla array e metti tutto a falso 
+// this.contacts.forEach(element => {
+//     if(element.visible == true){
+//         element.visible = false;
+//     }
+//     //dopo che hai messo a falso, dai vero a quello cliccato
+    
+// });
+// this.contacts[indexFunzione].visible = true;
+// //passo qua dentro la funzione per evitare di ripetere un altro click in html
+// this.imgContact();
+// imgContact(){
+//     this.contacts.forEach(element => {
+//         if (element.visible == true) {
+//             this.resultName = element.name;
+//             this.resultImg = element.src;
+//         }
+//         //dopo che hai messo a falso, dai vero a quello cliccato
+//         return this.resultImg + this.resultName;
+//     });
+
+// }
