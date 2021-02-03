@@ -49,9 +49,6 @@ ul{
 }
 
 
-/* background-image: linear-gradient(to bottom, #009688 15vh,
-    #dddbd1 15vh, #d2dbdc 100%); */
-
 /* Start left layout each container */
 .left div.header-left{
     width: 100%;
@@ -152,7 +149,7 @@ div.left-searchbar input{
     width: 80%;
     outline: 0;
     border: none;
-    background-color: f2fbff;
+    background-color: #f2fbff;
 }
 
 /*****asdfffffff*/
@@ -164,6 +161,9 @@ div.left-searchbar input{
     overflow-y: scroll;
     background-color: #ffffff;
 }
+
+
+
 
 .left div.contacts ul.menu-contacts{
     width: 100%;
@@ -233,32 +233,6 @@ ul.menu-contacts li:hover{
     color: #218cf2;
 }
 
-div.img-contacts.ema{
-    background-image: url('../img/emanuele.jpg');
-}
-div.img-contacts.yuri{
-    background-image: url('../img/yuri.jpg');
-}
-div.img-contacts.cri{
-    background-image: url('../img/cri.jpg');
-}
-div.img-contacts.bif{
-    background-image: url('../img/bif.jpg');
-}
-div.img-contacts.papaya{
-    background-image: url('../img/papaya.jpg');
-}
-div.img-contacts.tina{
-    background-image: url('../img/tina.jpeg');
-}
-div.img-contacts.jack{
-    background-image: url('../img/jack.jpg');
-}
-
-
-
-
-
 /* end left layout each container */
 
 
@@ -305,20 +279,21 @@ ul.menu-open-icon li i{
 
 .right div.container-message{
     width: 100%;
-    height: calc(100vh - 70px);
+    height: calc(100% - 70px );
+    background-color: green;
     background-image: url('../img/mine.jpg');
     overflow-y: scroll;
 }
 
-
 .right div.container-message div.messages{
     width: 85%;
-    height: 100vh;
+    height: 100%;
     margin: auto;
     display: flex;
     flex-direction: column;
     padding: 1% 0;
 }
+
 .message{
     min-width: 20%;
     max-width: 60%;

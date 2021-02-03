@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +11,7 @@
         crossorigin="anonymous" />
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
 </head>
+
 <body>
     <!--contenitore principale-->
     <div id="app" class="container">
@@ -59,35 +61,36 @@
             <div class="contacts">
                 <ul class="menu-contacts">
                     <!-- first chat -->
-                    <li v-for='(elemento, indice) in contacts' >
+                    <li @click="contactSelected(indice)" v-for='(elemento, indice) in contacts'>
                         <div class="open-contacts">
-                            <!-- :style="{'text-decoration': decoration}" -->
-                            <img  class="img-contacts" :src="elemento.src" >
-                                
+
+                            <img class="img-contacts" :src="elemento.src">
+
                             </img>
                         </div>
-                        <div class="message-open-chat"> 
+                        <div class="message-open-chat">
                             <div class="name-chat">
                                 <p>{{elemento.name}}</p>
-                                <div v-for="(key, index) in elemento.message" >
-                                        <span v-if="index == elemento.message.length-1">{{key.date}} </span>
+                                <div v-for="(key, index) in elemento.message">
+                                    <span v-if="index == elemento.message.length-1">{{key.date}} </span>
 
-                                
+
                                 </div>
                             </div>
-                            <div  v-for="(key, index) in elemento.message" v-if="index == elemento.message.length-1" class="text">
-                                <div  class="spunta">
+                            <div v-for="(key, index) in elemento.message" v-if="index == elemento.message.length-1"
+                                class="text">
+                                <div class="spunta">
                                     <i class="fas fa-check first"></i>
                                     <i class="fas fa-check second"></i>
                                 </div>
                                 {{key.text}}
                             </div>
-                            
+
                         </div>
                     </li>
 
                     <!-- second chat -->
-                    
+
                 </ul>
             </div>
             <!-- /contacts -->
@@ -97,9 +100,9 @@
 
         <!-- .container right -->
         <div class="right">
-            <div  v-for='element in openChat' class="header-right">
-                <div  class="box-selected">
-                    <img class="img-contact" :src="element.src" ></img>
+            <div v-for='element in openChat' class="header-right">
+                <div class="box-selected">
+                    <img class="img-contact" :src="element.src"></img>
                     <div class="title-chat">
                         <p style="font-weight: 600;">Emanuele</p>
                         <p style="color: #b1b1b1;">Ultimo accesso...</p>
@@ -122,13 +125,15 @@
 
             <!--*CHAT-->
             <div class="container-message">
-                <div class="messages">
-                    <div class="message received">ciao dave
+                <div class="messages" v-for="(element,index) in contacts">
+                    <!--il v if é relativo alla funzione contactSelected-->
+                    <div v-if="element.visible == true" v-for="(key, index) in element.message" class="message received" :class="(key.status == 'sent') ? 'sent' : 'received'">
+                        {{ key.text }}
                         <div class="time-received">
-                            11.56
+                            {{ key.date }}
                         </div>
                     </div>
-                    <div class="message sent">ciao lele
+                    <!-- <div class="message sent">ciao lele
                         <div class="check">
                             <div class="time">12.55</div>
                             <i class="fas fa-check first"></i>
@@ -177,11 +182,13 @@
                         </div>
                     </div>
                     <div class="message sent">aooooooooooooo anvedi</div>
+                </div> -->
                 </div>
-            </div>
-            <!--*CHAT-->
+                <!--*CHAT-->
+                
 
-        <!--_FOOT-->
+                <!--_FOOT-->
+            </div>
             <div class="footer-message">
                 <i class="fas fa-smile"></i>
                 <i id="ruota" class="fas fa-paperclip"></i>
@@ -189,10 +196,10 @@
                 <i class="fas fa-microphone"></i>
             </div>
             <!--_/FOOT-->
+            <!--./CONTAINER RIGHT-->
         </div>
-        <!--./CONTAINER RIGHT-->
-    </div>
-    <!--/contenitore principale-->
-    <script src="js/script.js"></script>
+        <!--/contenitore principale-->
+        <script src="js/script.js"></script>
 </body>
+
 </html>
