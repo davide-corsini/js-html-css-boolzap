@@ -61,7 +61,7 @@
             <div class="contacts">
                 <ul class="menu-contacts">
                     <!-- first chat -->
-                    <li @click="contactSelected(indice)" v-for='(elemento, indice) in contacts'>
+                    <li @click="contactSelected(indice)" v-for='(elemento, indice) in filtroDati'>
                         <div class="open-contacts">
 
                             <img class="img-contacts" :src="elemento.src">

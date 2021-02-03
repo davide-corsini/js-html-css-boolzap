@@ -205,10 +205,15 @@ var app = new Vue({
             }
             this.contacts[this.contatore].message.push(mexRicevuto);
             this.prova = '';
-        },
-        filtroDati(){
-            
         }
+    },
+    computed: {
+        filtroDati(){
+            return this.contacts.filter(element => {
+                return element.name.toLowerCase().includes(this.filtro.toLowerCase());
+            });
+        }
+        
     }
     
 });
