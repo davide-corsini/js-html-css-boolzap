@@ -181,9 +181,9 @@ var app = new Vue({
                     element.visible = false;
                 }
                 //dopo che hai messo a falso, dai vero a quello cliccato
-                this.contacts[indexFunzione].visible = true;
                 
             });
+            this.contacts[indexFunzione].visible = true;
         }
     }
     
