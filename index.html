@@ -50,7 +50,7 @@
             <div class="left-searchbar">
                 <div class="box-search">
                     <i class="fas fa-search"></i>
-                    <input v-model="filtro" type="text" placeholder="Cerca o inizia una nuova chat">
+                    <input v-model="filtro" @keyup="filtroRicerca" type="text" placeholder="Cerca o inizia una nuova chat">
 
                 </div>
 
@@ -61,7 +61,7 @@
             <div class="contacts">
                 <ul class="menu-contacts">
                     <!-- first chat -->
-                    <li @click="contactSelected(indice)" v-for='(elemento, indice) in filtroDati'>
+                    <li @click="contactSelected(indice)" v-if="elemento.visible" v-for='(elemento, indice) in contacts'>
                         <div class="open-contacts">
 
                             <img class="img-contacts" :src="elemento.src">
@@ -96,10 +96,10 @@
         <div class="right">
             <div v-for='element in openChat' class="header-right">
                 <div class="box-selected">
-                    <img class="img-contact" :src="filtroDati[contatore].src"></img>
+                    <img class="img-contact" :src="contacts[contatore].src"></img>
                     <div class="title-chat">
                         <p style="font-weight: 600;">
-                        {{filtroDati[contatore].name}}</p>
+                        {{contacts[contatore].name}}</p>
                         <p style="color: #b1b1b1;">Ultimo accesso...</p>
                     </div>
                 </div>
@@ -122,7 +122,7 @@
             <div class="container-message">
                 <div class="messages">
                     <!--il v if é relativo alla funzione contactSelected-->
-                    <div  class="message with-dropdown" v-for="(key, index) in filtroDati[contatore].message" :class="(key.status == 'sent') ? 'sent' : 'received'">
+                    <div  class="message with-dropdown" v-for="(key, index) in contacts[contatore].message" :class="(key.status == 'sent') ? 'sent' : 'received'">
                         {{ key.text }}
                         <div :class="attivo" class="dropdown-menu">
                             <ul class="submenu-drop">
@@ -196,8 +196,9 @@
             <div class="footer-message">
                 <i class="fas fa-smile"></i>
                 <i id="ruota" class="fas fa-paperclip"></i>
-                <input v-model="prova" id="input-enter" @keyup.enter="addMessage" type="text" placeholder="Scrivi un messaggio">
-                <i class="fas fa-microphone"></i>
+                <input v-model="prova" @keyup="changeMicrophone" id="input-enter" @keyup.enter="addMessage" type="text" placeholder="Scrivi un messaggio">
+                <i class="fas fa-microphone" :class="paperPlane"></i>
+
             </div>
             <!--_/FOOT-->
             <!--./CONTAINER RIGHT-->

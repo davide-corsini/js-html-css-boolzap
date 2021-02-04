@@ -15,6 +15,7 @@ var app = new Vue({
                 visible: true
             }
         ],
+        paperPlane: '',
         attivo: '',
         filtro: '',
         prova: '',
@@ -182,8 +183,15 @@ var app = new Vue({
         contactSelected(indexFunzione){
             this.contatore = indexFunzione;
         },
+        changeMicrophone(){
+            if(this.prova.length > 0){
+                this.paperPlane = 'fas fa-paper-plane';
+            }
+            
+        },
         addMessage(){
             if(this.prova.length > 0){
+                this.paperPlane ='';
                 const newMessage = {
                     date: '15:30:55',
                     text: this.prova,
@@ -205,22 +213,36 @@ var app = new Vue({
             }
             this.contacts[this.contatore].message.push(mexRicevuto);
             this.prova = '';
+        },
+        filtroRicerca(){
+            //*filter
+            // console.log('ciao');
+            // console.log(this.filtro);
+            // let arrayProva = this.contacts.filter((element) => {
+            //     return element.name.toLowerCase().includes(this.filtro.toLowerCase());
+            // });
+
+            // this.contacts = arrayProva;
+            // console.log(arrayProva);
+            //{forEach}
+            this.contacts.forEach((element) => {
+                if (element.name.toLowerCase().includes(this.filtro.toLowerCase())) {
+                        element.visible = true;
+                }
+                else{
+                    element.visible = false;
+                }
+            });
         }
     },
-    computed: {
-        filtroDati(){
+    // computed: {
+    //     filtroDati(){
             
-            return this.contacts.filter((element) => {
-                return element.name.toLowerCase().includes(this.filtro.toLowerCase());
-            });
-        } 
-    },
-        // choiceOnMessage(){
-        //     let cliccato = this.contacts[this.contatore];
-        //     if()
-        //     this.attivo = 'active';
-        //     console.log(this.attivo);
-        // }
+    //         return this.contacts.filter((element) => {
+    //             return element.name.toLowerCase().includes(this.filtro.toLowerCase());
+    //         });
+    //     } 
+    // },
     created(){
         console.log(this.filtroDati , 'ciao sono filtroDati');
         console.log(this.contacts , 'ciao sono contacts');

@@ -126,7 +126,7 @@ div.circle{
     border-radius: 50%;
     font-size: 18px;
 }
-/**dsaffffffffff*/
+/*{ Start searchbar */
 .left div.left-searchbar{
     width: 100%;
     height: 50px;
@@ -151,8 +151,10 @@ div.left-searchbar input{
     border: none;
     background-color: #f2fbff;
 }
+/*{ /Searchbar */
 
-/*****asdfffffff*/
+
+/**Contacts*/
 
 .left div.contacts{
     width: 100%;
@@ -162,17 +164,12 @@ div.left-searchbar input{
     background-color: #ffffff;
 }
 
-
-
-
 .left div.contacts ul.menu-contacts{
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
 }
-
-/* debug */
 
 ul.menu-contacts li{
     display: flex;
@@ -212,7 +209,6 @@ ul.menu-contacts li:hover{
     width: 100%;
     height: 30px;
     display: flex;
-    /* justify-content: space-between; */
     align-items: flex-end;
 }
 
@@ -233,12 +229,13 @@ ul.menu-contacts li:hover{
 .spunta i.second.read{
     color: #218cf2;
 }
-
+/**End contacts*/
 /* end left layout each container */
 
 
 
 /* start right layout each container */
+/* .Header right container */
 .right div.header-right{
     width: 100%;
     height: 70px;
@@ -276,8 +273,10 @@ ul.menu-open-icon{
 ul.menu-open-icon li i{
     color: #b1b1b1;
 }
+/* .//Header container */
 
 
+/* {Container-message */
 .right div.container-message{
     width: 100%;
     height: calc(100% - 70px );
@@ -357,7 +356,10 @@ div.messages div.sent{
     padding: 1%;
     border-radius: 5px;
 }
+/* {//Cointainer message */
 
+
+/* _start footer */
 .right div.footer-message{
     width: 100%;
     height: 70px;
