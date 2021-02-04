@@ -212,6 +212,12 @@ ul.menu-contacts li:hover{
     align-items: flex-end;
 }
 
+.ciao{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+}
 .spunta{
     position: relative;
     margin-right: 10px;
