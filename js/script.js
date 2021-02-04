@@ -15,6 +15,7 @@ var app = new Vue({
                 visible: true
             }
         ],
+        attivo: '',
         filtro: '',
         prova: '',
         contatore: 0,
@@ -46,7 +47,7 @@ var app = new Vue({
             {
                 name: 'Yuri',
                 src: 'img/yuri.jpg',
-                visible: false,
+                visible: true,
                 message: [
                     {
                         date: '10/01/2020 15:30:55',
@@ -68,7 +69,7 @@ var app = new Vue({
             {
                 name: 'Cristiano',
                 src: 'img/cri.jpg',
-                visible: false,
+                visible: true,
                 message: [
                     {
                         date: '10/01/2020 15:30:55',
@@ -90,7 +91,7 @@ var app = new Vue({
             {
                 name: 'Bif',
                 src: 'img/bif.jpg',
-                visible: false,
+                visible: true,
                 message: [
                     {
                         date: '10/01/2020 15:30:55',
@@ -112,7 +113,7 @@ var app = new Vue({
             {
                 name: 'Papaya',
                 src: 'img/papaya.jpg',
-                visible: false,
+                visible: true,
                 message: [
                     {
                         date: '10/01/2020 15:30:55',
@@ -134,7 +135,7 @@ var app = new Vue({
             {
                 name: 'Tina',
                 src: 'img/tina.jpg',
-                visible: false,
+                visible: true,
                 message: [
                     {
                         date: '15:30:55',
@@ -156,7 +157,7 @@ var app = new Vue({
             {
                 name: 'Jack Teacher',
                 src: 'img/jack.jpg',
-                visible: false,
+                visible: true,
                 message: [
                     {
                         date: '15:30:55',
@@ -180,7 +181,6 @@ var app = new Vue({
     methods:{
         contactSelected(indexFunzione){
             this.contatore = indexFunzione;
-
         },
         addMessage(){
             if(this.prova.length > 0){
@@ -209,14 +209,26 @@ var app = new Vue({
     },
     computed: {
         filtroDati(){
-            return this.contacts.filter(element => {
+            
+            return this.contacts.filter((element) => {
                 return element.name.toLowerCase().includes(this.filtro.toLowerCase());
             });
-        }
-        
+        } 
+    },
+        // choiceOnMessage(){
+        //     let cliccato = this.contacts[this.contatore];
+        //     if()
+        //     this.attivo = 'active';
+        //     console.log(this.attivo);
+        // }
+    created(){
+        console.log(this.filtroDati , 'ciao sono filtroDati');
+        console.log(this.contacts , 'ciao sono contacts');
+        console.log(this.receivedMessage, 'sono received message');
     }
     
 });
+
 
 
 

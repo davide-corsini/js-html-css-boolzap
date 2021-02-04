@@ -387,3 +387,30 @@ div.messages div.sent{
 }
 
 /* end right layout each container */
+
+
+
+/* dropdown part */ 
+div.dropdown-menu{
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+div.dropdown-menu{
+    max-width: 150px;
+    max-height: 150px;
+    position: absolute;
+    background-color: white;
+    padding: 10px;
+    display: none;
+}
+
+div.dropdown-menu.active{
+    display: block;
+}
+
+ul.submenu-drop li{
+    line-height: 1.6;
+    font-size: 13px;
+}
