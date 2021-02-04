@@ -199,16 +199,19 @@ var app = new Vue({
                 };
                 this.contacts[this.contatore].message.push(newMessage);
                 this.prova = '';
-    
+                
+                //I can write this function in two different methods..
                 setTimeout(() => {
                     this.receivedMessage()
                 }, 3000);
+
+                // setTimeout(this.receivedMessage, 3000);
             }     
         },
         receivedMessage(){
             const mexRicevuto = {
                 date: '15:30:55',
-                text: 'boolean',
+                text: 'Boolean',
                 status: 'received'
             }
             this.contacts[this.contatore].message.push(mexRicevuto);
@@ -233,6 +236,9 @@ var app = new Vue({
                     element.visible = false;
                 }
             });
+        },
+        activeInfo(){
+            
         }
     },
     // computed: {

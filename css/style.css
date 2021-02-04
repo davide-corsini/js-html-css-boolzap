@@ -212,7 +212,7 @@ ul.menu-contacts li:hover{
     align-items: flex-end;
 }
 
-.ciao{
+.preview{
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -421,4 +421,12 @@ div.dropdown-menu.active{
 ul.submenu-drop li{
     line-height: 1.6;
     font-size: 13px;
+}
+
+p.info{
+    display: none;
+}
+
+div.time-received:hover p.info{
+    display: inline-block;
 }
