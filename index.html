@@ -39,7 +39,8 @@
                 <div class="box-disclaimer">
 
                     <div class="circle"><i class="fas fa-bell-slash" style="color: #8edafc;"></i></div>
-                    <div class="notifications">Ricevi notifiche di nuovi messaggi
+                    <div class="notifications">
+                        Ricevi notifiche di nuovi messaggi
                         <p>Attiva notifiche desktop</p>
                     </div>
                 </div>
@@ -101,10 +102,10 @@
         <div class="right">
             <div  class="header-right">
                 <div class="box-selected">
-                    <img class="img-contact" :src="contacts[contatore].src"></img>
+                    <img class="img-contact" :src=" contacts[contatore].src "></img>
                     <div class="title-chat">
                         <p style="font-weight: 600;">
-                            {{contacts[contatore].name}}</p>
+                            {{  contacts[contatore].name    }}</p>
                         <p style="color: #b1b1b1;">Ultimo accesso...</p>
                     </div>
                 </div>
@@ -127,8 +128,8 @@
             <div class="container-message">
                 <div class="messages">
                     <!--il v if é relativo alla funzione contactSelected-->
-                    <div  class="message with-dropdown" v-for="(key, index) in contacts[contatore].message"
-                        :class="(key.status == 'sent') ? 'sent' : 'received'">
+                    <div  class="message with-dropdown" v-for=" ( key, index ) in contacts[contatore].message "
+                        :class="( key.status == 'sent') ? 'sent' : 'received'">
                         {{ key.text }}
                         <!-- <div :class="{active:attivo == index}" class="dropdown-menu"> -->
                         <div  :class="{ active : attivo === index }" class="dropdown-menu">
@@ -137,8 +138,8 @@
 
                             <ul  class="submenu-drop">
                                 <li>Info messaggio</li>
-                                <li @click="proviamo(index)">Rispondi</li>
-                                <li @click="deleteMessage(index)">Elimina messaggio</li>
+                                <li @click="proviamo( index )">Rispondi</li>
+                                <li @click="deleteMessage( index )">Elimina messaggio</li>
 
                             </ul>
                         </div>
@@ -147,7 +148,7 @@
                             <p class="info">
                                 <!-- -->
                                 <!-- <i @click="attivo = index" class="fas fa-chevron-down"></i> -->
-                                <i @click="toggleClass(index)" class="fas fa-chevron-down"></i>                     
+                                <i @click="toggleClass( index )" class="fas fa-chevron-down"></i>                     
                             </p>
                         </div>
                     </div>

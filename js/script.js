@@ -301,9 +301,10 @@ var app = new Vue({
                 }
             });
         },
-        toggleClass(indicizziamolo){
+        toggleClass(index){
             // this.attivo = !this.attivo;
-            this.attivo = indicizziamolo;
+            this.attivo = index;
+            
             
         },
         deleteMessage(indice){
