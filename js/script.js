@@ -389,6 +389,41 @@ var app = new Vue({
             this.contacts[this.contatore].message[index].attivo = !this.contacts[this.contatore].message[index].attivo; 
             // this.attivo = this.contacts[this.contatore].message[index];
             // console.log(this.attivo);
+
+
+        
+                // return this.contacts.map((element) => {
+                //     console.log(element, 'io sono element');
+                //     return {
+                //         ...element,
+                //         ciao: 'provaaaaaaaaaaaaaaaaaaaaaaaaaaa'
+                //     }
+                // })
+                // console.log(arrayProva);
+            
+                let arrayProva =  this.contacts.map(element => {
+                    
+                    let {   message   } = element;
+                    return {
+                        ...element,
+                        ciao: 'prova'
+                    }
+                    
+                })
+                console.log(arrayProva);
+
+
+
+
+
+
+
+
+
+
+
+
+
         },
         deleteMessage(indice){
 
@@ -403,14 +438,19 @@ var app = new Vue({
             console.log(this.toggleClass);
 
         }
-    },
-    created(){
-        daje(){
-            this.contacts.
-        }
-    }
+    }  
     
 });
+
+// const iconeEcolori = icons.map((element, index) => {
+//     const { type } = element;
+//     //_adesso che sono nel map cosa devo ritornare?
+//     //_ devo ritornare i colori
+//     return {
+//         ...element,
+//         colore: getColor(type)
+//     }
+// });
 
 
 
