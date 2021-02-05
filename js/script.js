@@ -8,15 +8,8 @@ var app = new Vue({
                 visible: true
             }
         ],
-        openChat: [
-            {
-                name: 'Emanuele',
-                src: 'img/ema.jpg',
-                visible: true
-            }
-        ],
         paperPlane: '',
-        attivo: '',
+        attivo: null,
         filtro: '',
         prova: '',
         contatore: 0,
@@ -42,6 +35,16 @@ var app = new Vue({
                         date: '10/01/2020 15:58:55',
                         text: 'Dajeeeeee',
                         status: 'sent'
+                    },
+                    {
+                        date: '15:30:55',
+                        text: 'boh',
+                        status: 'received'
+                    },
+                    {
+                        date: '18:30:55',
+                        text: 'roma',
+                        status: 'sent'
                     }
                 ]
             },
@@ -63,6 +66,16 @@ var app = new Vue({
                     {
                         date: '10/01/2020 15:30:55',
                         text: 'Stai con i butei',
+                        status: 'sent'
+                    },
+                    {
+                        date: '15:30:55',
+                        text: 'sisi',
+                        status: 'received'
+                    },
+                    {
+                        date: '18:30:55',
+                        text: 'veneto',
                         status: 'sent'
                     }
                 ]
@@ -86,6 +99,16 @@ var app = new Vue({
                         date: '10/01/2020 15:30:55',
                         text: 'Noleggiato il pullman per Lugano',
                         status: 'sent'
+                    },
+                    {
+                        date: '15:30:55',
+                        text: 'comedffdfdafdasfffffffffffffffffffffffffffffffff',
+                        status: 'received'
+                    },
+                    {
+                        date: '18:30:55',
+                        text: 'asddfsdffa',
+                        status: 'sent'
                     }
                 ]
             },
@@ -107,6 +130,16 @@ var app = new Vue({
                     {
                         date: '10/01/2020 15:30:55',
                         text: 'Sei uscito con la tipa?',
+                        status: 'sent'
+                    },
+                    {
+                        date: '15:30:55',
+                        text: 'fffffffffffffffffffffffffffffffffffffffffff',
+                        status: 'received'
+                    },
+                    {
+                        date: '18:30:55',
+                        text: 'Non mi funziona Javascript',
                         status: 'sent'
                     }
                 ]
@@ -130,6 +163,16 @@ var app = new Vue({
                         date: '10/01/2020 15:30:55',
                         text: 'Non fare il genovese, offri l\'ape',
                         status: 'sent'
+                    },
+                    {
+                        date: '15:30:55',
+                        text: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+                        status: 'received'
+                    },
+                    {
+                        date: '18:30:55',
+                        text: 'Non mi funziona Javascript',
+                        status: 'sent'
                     }
                 ]
             },
@@ -150,7 +193,17 @@ var app = new Vue({
                     },
                     {
                         date: '15:30:55',
-                        text: 'Conquisteremo il mondo',
+                        text: 'ddddddddddddddddddddddddddddddddddddd il mondo',
+                        status: 'sent'
+                    },
+                    {
+                        date: '15:30:55',
+                        text: 'dddddddddddddddd',
+                        status: 'received'
+                    },
+                    {
+                        date: '18:30:55',
+                        text: 'Non mi fasfddddddddfdfasdfafdasfdasfaunziona Javascript',
                         status: 'sent'
                     }
                 ]
@@ -174,6 +227,16 @@ var app = new Vue({
                         date: '18:30:55',
                         text: 'Non mi funziona Javascript',
                         status: 'sent'
+                    },
+                    {
+                        date: '15:30:55',
+                        text: 'cfadfasfasdfasdfome',
+                        status: 'received'
+                    },
+                    {
+                        date: '18:30:55',
+                        text: 'Non mi fuadsfdasfdasfdasdfasfanziona Javascript',
+                        status: 'sent'
                     }
                 ]
             }
@@ -184,6 +247,7 @@ var app = new Vue({
             this.contatore = indexFunzione;
         },
         changeMicrophone(){
+            //if there is almost 1 charact in input "scrivi un messaggio" ? none to microphone, block to paper-plane
             if(this.prova.length > 0){
                 this.paperPlane = 'fas fa-paper-plane';
             }
@@ -237,22 +301,22 @@ var app = new Vue({
                 }
             });
         },
-        activeInfo(){
+        toggleClass(indicizziamolo){
+            // this.attivo = !this.attivo;
+            this.attivo = indicizziamolo;
             
+        },
+        deleteMessage(indice){
+            this.contacts[this.contatore].message.splice(indice, 1);
+            // this.contacts[this.contatore].message.slice(index, 1);
+        },
+        proviamo(index){
+            console.log(this.contacts[this.contatore].message[index]);
+            //entra in contatti dell'utente selezionato vai nel messaggi
+            console.log(this.toggleClass);
         }
     },
-    // computed: {
-    //     filtroDati(){
-            
-    //         return this.contacts.filter((element) => {
-    //             return element.name.toLowerCase().includes(this.filtro.toLowerCase());
-    //         });
-    //     } 
-    // },
     created(){
-        console.log(this.filtroDati , 'ciao sono filtroDati');
-        console.log(this.contacts , 'ciao sono contacts');
-        console.log(this.receivedMessage, 'sono received message');
     }
     
 });
@@ -291,4 +355,4 @@ var app = new Vue({
 //         return this.resultImg + this.resultName;
 //     });
 
-// }
+// 

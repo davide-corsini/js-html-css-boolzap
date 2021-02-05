@@ -407,11 +407,12 @@ div.dropdown-menu{
 
 div.dropdown-menu{
     max-width: 150px;
-    max-height: 150px;
+    max-height: 100px;
     position: absolute;
     background-color: white;
     padding: 10px;
     display: none;
+    margin-top: 10px;
 }
 
 div.dropdown-menu.active{
@@ -422,7 +423,10 @@ ul.submenu-drop li{
     line-height: 1.6;
     font-size: 13px;
 }
-
+ul.submenu-drop li:hover{
+    background-color: red;
+    cursor: pointer;
+}
 p.info{
     display: none;
 }
@@ -430,3 +434,4 @@ p.info{
 div.time-received:hover p.info{
     display: inline-block;
 }
+

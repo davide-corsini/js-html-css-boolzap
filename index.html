@@ -99,7 +99,7 @@
 
         <!-- .container right -->
         <div class="right">
-            <div v-for='element in openChat' class="header-right">
+            <div  class="header-right">
                 <div class="box-selected">
                     <img class="img-contact" :src="contacts[contatore].src"></img>
                     <div class="title-chat">
@@ -122,27 +122,32 @@
                     </ul>
                 </div>
             </div>
-            <!--{RICORDATI DI CAMBIARE I contacts SE NON FUNZIONA}-->
+            
             <!--*CHAT-->
             <div class="container-message">
                 <div class="messages">
                     <!--il v if é relativo alla funzione contactSelected-->
-                    <div class="message with-dropdown" v-for="(key, index) in contacts[contatore].message"
+                    <div  class="message with-dropdown" v-for="(key, index) in contacts[contatore].message"
                         :class="(key.status == 'sent') ? 'sent' : 'received'">
                         {{ key.text }}
-                        <div :class="attivo" class="dropdown-menu">
-                            <ul class="submenu-drop">
+                        <!-- <div :class="{active:attivo == index}" class="dropdown-menu"> -->
+                        <div  :class="{ active : attivo === index }" class="dropdown-menu">
+
+                        <!-- <div :class="attivo == true ? 'active' : '' " class="dropdown-menu"> -->
+
+                            <ul  class="submenu-drop">
                                 <li>Info messaggio</li>
-                                <li>Rispondi</li>
-                                <li>Inoltra messaggio</li>
-                                <li>Messaggio importante</li>
-                                <li>Elimina messaggio</li>
+                                <li @click="proviamo(index)">Rispondi</li>
+                                <li @click="deleteMessage(index)">Elimina messaggio</li>
+
                             </ul>
                         </div>
                         <div class="time-received">
                             {{ key.date }}
                             <p class="info">
-                                <i  class="fas fa-chevron-down"></i>                     
+                                <!-- -->
+                                <!-- <i @click="attivo = index" class="fas fa-chevron-down"></i> -->
+                                <i @click="toggleClass(index)" class="fas fa-chevron-down"></i>                     
                             </p>
                         </div>
                     </div>
