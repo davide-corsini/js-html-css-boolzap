@@ -132,9 +132,11 @@
                         :class="( key.status == 'sent') ? 'sent' : 'received'">
                         {{ key.text }}
                         <!-- <div :class="{active:attivo == index}" class="dropdown-menu"> -->
-                        <div  :class="{ active : attivo === index }" class="dropdown-menu">
-
-                        <!-- <div :class="attivo == true ? 'active' : '' " class="dropdown-menu"> -->
+                            
+                        <!-- <div  :class="{active : attivo === index }" class="dropdown-menu"> -->
+                        
+                            <div :class="key.attivo == true  ? 'active' : '' " class="dropdown-menu">
+                        <!-- <div :class="attivo == true  ?'active' : '' " class="dropdown-menu"> -->
 
                             <ul  class="submenu-drop">
                                 <li>Info messaggio</li>

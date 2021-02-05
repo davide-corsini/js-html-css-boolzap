@@ -2,14 +2,16 @@ var app = new Vue({
     el: "#app",
     data: {
         activeContact:[
+
             {
                 name: 'Davide',
                 src: 'img/davide.jpg',
                 visible: true
             }
+
         ],
         paperPlane: '',
-        attivo: null,
+        attivo: false,
         filtro: '',
         prova: '',
         contatore: 0,
@@ -20,31 +22,39 @@ var app = new Vue({
                 name: 'Emanuele',
                 src: 'img/ema.jpg',
                 visible: true,
+                staScrivendo: false,
                 message: [
                     {
                         date: '10/01/2020 15:30:55',
                         text: 'ciao',
-                        status: 'sent'
+                        status: 'sent',
+                        attivo: false
                     },
                     {
                         date: '10/01/2020 15:30:55',
                         text: 'come',
-                        status: 'received'
+                        status: 'received',
+                        attivo: false
                     },
                     {
                         date: '10/01/2020 15:58:55',
                         text: 'Dajeeeeee',
-                        status: 'sent'
+                        status: 'sent',
+                        attivo: false
                     },
                     {
                         date: '15:30:55',
                         text: 'boh',
-                        status: 'received'
+                        status: 'received',
+                        attivo: false
+
                     },
                     {
                         date: '18:30:55',
                         text: 'roma',
-                        status: 'sent'
+                        status: 'sent',
+                        attivo: false
+
                     }
                 ]
             },
@@ -52,31 +62,42 @@ var app = new Vue({
                 name: 'Yuri',
                 src: 'img/yuri.jpg',
                 visible: true,
+                staScrivendo: false,
                 message: [
                     {
                         date: '10/01/2020 15:30:55',
                         text: 'ciao',
-                        status: 'sent'
+                        status: 'sent',
+                        attivo: false
+
                     },
                     {
                         date: '10/01/2020 15:30:55',
                         text: 'come',
-                        status: 'received'
+                        status: 'received',
+                        attivo: false
+
                     },
                     {
                         date: '10/01/2020 15:30:55',
                         text: 'Stai con i butei',
-                        status: 'sent'
+                        status: 'sent',
+                        attivo: false
+
                     },
                     {
                         date: '15:30:55',
                         text: 'sisi',
-                        status: 'received'
+                        status: 'received',
+                        attivo: false
+
                     },
                     {
                         date: '18:30:55',
                         text: 'veneto',
-                        status: 'sent'
+                        status: 'sent',
+                        attivo: false
+
                     }
                 ]
             },
@@ -84,31 +105,42 @@ var app = new Vue({
                 name: 'Cristiano',
                 src: 'img/cri.jpg',
                 visible: true,
+                staScrivendo: false,
                 message: [
                     {
                         date: '10/01/2020 15:30:55',
                         text: 'ciao',
-                        status: 'sent'
+                        status: 'sent',
+                        attivo: false
+
                     },
                     {
                         date: '10/01/2020 15:30:55',
                         text: 'come',
-                        status: 'received'
+                        status: 'received',
+                        attivo: false
+
                     },
                     {
                         date: '10/01/2020 15:30:55',
                         text: 'Noleggiato il pullman per Lugano',
-                        status: 'sent'
+                        status: 'sent',
+                        attivo: false
+
                     },
                     {
                         date: '15:30:55',
                         text: 'comedffdfdafdasfffffffffffffffffffffffffffffffff',
-                        status: 'received'
+                        status: 'received',
+                        attivo: false
+
                     },
                     {
                         date: '18:30:55',
                         text: 'asddfsdffa',
-                        status: 'sent'
+                        status: 'sent',
+                        attivo: false
+
                     }
                 ]
             },
@@ -116,31 +148,42 @@ var app = new Vue({
                 name: 'Bif',
                 src: 'img/bif.jpg',
                 visible: true,
+                staScrivendo: false,
                 message: [
                     {
                         date: '10/01/2020 15:30:55',
                         text: 'ciao',
-                        status: 'sent'
+                        status: 'sent',
+                        attivo: false
+
                     },
                     {
                         date: '10/01/2020 15:30:55',
                         text: 'come',
-                        status: 'received'
+                        status: 'received',
+                        attivo: false
+
                     },
                     {
                         date: '10/01/2020 15:30:55',
                         text: 'Sei uscito con la tipa?',
-                        status: 'sent'
+                        status: 'sent',
+                        attivo: false
+
                     },
                     {
                         date: '15:30:55',
                         text: 'fffffffffffffffffffffffffffffffffffffffffff',
-                        status: 'received'
+                        status: 'received',
+                        attivo: false
+
                     },
                     {
                         date: '18:30:55',
                         text: 'Non mi funziona Javascript',
-                        status: 'sent'
+                        status: 'sent',
+                        attivo: false
+
                     }
                 ]
             },
@@ -148,31 +191,41 @@ var app = new Vue({
                 name: 'Papaya',
                 src: 'img/papaya.jpg',
                 visible: true,
+                staScrivendo: false,
                 message: [
                     {
                         date: '10/01/2020 15:30:55',
                         text: 'ciao',
-                        status: 'sent'
+                        status: 'sent',
+                        attivo: false
+
                     },
                     {
                         date: '10/01/2020 15:30:55',
                         text: 'come',
-                        status: 'receveid'
+                        status: 'receveid',
+                        attivo: false
                     },
                     {
                         date: '10/01/2020 15:30:55',
                         text: 'Non fare il genovese, offri l\'ape',
-                        status: 'sent'
+                        status: 'sent',
+                        attivo: false
+
                     },
                     {
                         date: '15:30:55',
                         text: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
-                        status: 'received'
+                        status: 'received',
+                        attivo: false
+
                     },
                     {
                         date: '18:30:55',
                         text: 'Non mi funziona Javascript',
-                        status: 'sent'
+                        status: 'sent',
+                        attivo: false
+
                     }
                 ]
             },
@@ -180,31 +233,42 @@ var app = new Vue({
                 name: 'Tina',
                 src: 'img/tina.jpg',
                 visible: true,
+                staScrivendo: false,
                 message: [
                     {
                         date: '15:30:55',
                         text: 'ciao',
-                        status: 'sent'
+                        status: 'sent',
+                        attivo: false
+
                     },
                     {
                         date: '15:30:55',
                         text: 'come',
-                        status: 'received'
+                        status: 'received',
+                        attivo: false
+
                     },
                     {
                         date: '15:30:55',
                         text: 'ddddddddddddddddddddddddddddddddddddd il mondo',
-                        status: 'sent'
+                        status: 'sent',
+                        attivo: false
+
                     },
                     {
                         date: '15:30:55',
                         text: 'dddddddddddddddd',
-                        status: 'received'
+                        status: 'received',
+                        attivo: false
+
                     },
                     {
                         date: '18:30:55',
                         text: 'Non mi fasfddddddddfdfasdfafdasfdasfaunziona Javascript',
-                        status: 'sent'
+                        status: 'sent',
+                        attivo: false
+
                     }
                 ]
             },
@@ -212,38 +276,51 @@ var app = new Vue({
                 name: 'Jack Teacher',
                 src: 'img/jack.jpg',
                 visible: true,
+                staScrivendo: false,
                 message: [
                     {
                         date: '15:30:55',
                         text: 'ciao',
-                        status: 'sent'
+                        status: 'sent',
+                        attivo: false
+
                     },
                     {
                         date: '15:30:55',
                         text: 'come',
-                        status: 'received'
+                        status: 'received',
+                        attivo: false
+
                     },
                     {
                         date: '18:30:55',
                         text: 'Non mi funziona Javascript',
-                        status: 'sent'
+                        status: 'sent',
+                        attivo: false
+
                     },
                     {
                         date: '15:30:55',
                         text: 'cfadfasfasdfasdfome',
-                        status: 'received'
+                        status: 'received',
+                        attivo: false
+
                     },
                     {
                         date: '18:30:55',
                         text: 'Non mi fuadsfdasfdasfdasdfasfanziona Javascript',
-                        status: 'sent'
+                        status: 'sent',
+                        attivo: false
+
                     }
                 ]
             }
         ]
     },
     methods:{
+
         contactSelected(indexFunzione){
+            
             this.contatore = indexFunzione;
         },
         changeMicrophone(){
@@ -254,12 +331,14 @@ var app = new Vue({
             
         },
         addMessage(){
+
             if(this.prova.length > 0){
                 this.paperPlane ='';
                 const newMessage = {
                     date: '15:30:55',
                     text: this.prova,
-                    status: 'sent'
+                    status: 'sent',
+                    attivo: false
                 };
                 this.contacts[this.contatore].message.push(newMessage);
                 this.prova = '';
@@ -273,24 +352,24 @@ var app = new Vue({
             }     
         },
         receivedMessage(){
+
             const mexRicevuto = {
                 date: '15:30:55',
                 text: 'Boolean',
-                status: 'received'
+                status: 'received',
+                attivo: false
             }
             this.contacts[this.contatore].message.push(mexRicevuto);
             this.prova = '';
+
         },
         filtroRicerca(){
             //*filter
-            // console.log('ciao');
-            // console.log(this.filtro);
-            // let arrayProva = this.contacts.filter((element) => {
+            
+            // this.contacts.filter((element) => {
             //     return element.name.toLowerCase().includes(this.filtro.toLowerCase());
             // });
-
-            // this.contacts = arrayProva;
-            // console.log(arrayProva);
+            
             //{forEach}
             this.contacts.forEach((element) => {
                 if (element.name.toLowerCase().includes(this.filtro.toLowerCase())) {
@@ -302,36 +381,36 @@ var app = new Vue({
             });
         },
         toggleClass(index){
-            // this.attivo = !this.attivo;
-            this.attivo = index;
             
-            
+            // this.attivo = index;
+
+
+            //qui gli sto dicendo entra in array di contatore clicckato vai nei messaggi con index corrispondente, vai in attivo e fa si che attivo é uguale alla sua stessa negazione
+            this.contacts[this.contatore].message[index].attivo = !this.contacts[this.contatore].message[index].attivo; 
+            // this.attivo = this.contacts[this.contatore].message[index];
+            // console.log(this.attivo);
         },
         deleteMessage(indice){
+
             this.contacts[this.contatore].message.splice(indice, 1);
             // this.contacts[this.contatore].message.slice(index, 1);
+
         },
         proviamo(index){
+
             console.log(this.contacts[this.contatore].message[index]);
             //entra in contatti dell'utente selezionato vai nel messaggi
             console.log(this.toggleClass);
+
         }
     },
     created(){
+        daje(){
+            this.contacts.
+        }
     }
     
 });
-
-
-
-
-
-
-
-
-
-
-
 
 
 
