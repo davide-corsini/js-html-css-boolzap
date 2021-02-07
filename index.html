@@ -9,33 +9,45 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
         integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
         crossorigin="anonymous" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+            integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+            crossorigin="anonymous"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
 </head>
 
 <body>
     <!--contenitore principale-->
     <div id="app" class="container">
+        
         <!--{container left-->
         <div class="left">
             <!-- header-left -->
-            <div class="header-left">
-                <div v-for="element in activeContact" class="menu-header-left">
+            <div  class="header-left" :class="dark">
+                <div v-for="element in activeContact" :class="dark" class="menu-header-left">
                     <img class="img-header" :src="element.src" alt="contatti-logo">
                     </img>
                     <div class="title-header">
                         {{element.name}}
                     </div>
+
+                    <div @click="darkMode" class="dark-btn" :class="attivo2 == true  ? 'active' : '' ">
+                        <div :class="movement"  class="active-dark" >
+
+                        </div>
+                    </div>
                 </div>
                 <ul class="sub-menu">
                     <li><i class="fas fa-circle-notch"></i></li>
                     <li><i class="fas fa-comment-alt"></i></li>
-                    <li><i class="fas fa-ellipsis-v"></i></li>
+                    <li><i  class="fas fa-ellipsis-v"></i></li>
                 </ul>
             </div>
             <!-- /header-left -->
 
             <!-- left-disclaimer -->
-            <div class="left-disclaimer">
+            <div class="left-disclaimer"  :class="dark">
                 <div class="box-disclaimer">
 
                     <div class="circle"><i class="fas fa-bell-slash" style="color: #8edafc;"></i></div>
@@ -48,11 +60,11 @@
             <!-- /left-disclaimer -->
 
             <!-- left-searchbar -->
-            <div class="left-searchbar">
-                <div class="box-search">
+            <div class="left-searchbar"  :class="dark">
+                <div class="box-search"  :class="dark">
                     <i class="fas fa-search"></i>
                     <input v-model="filtro" @keyup="filtroRicerca" type="text"
-                        placeholder="Cerca o inizia una nuova chat">
+                        placeholder="Cerca o inizia una nuova chat"  :class="dark">
 
                 </div>
 
@@ -60,10 +72,10 @@
             <!-- /left-searchbar -->
 
             <!-- contacts -->
-            <div class="contacts">
-                <ul class="menu-contacts">
+            <div class="contacts"  :class="dark">
+                <ul class="menu-contacts"  :class="dark">
                     <!-- first chat -->
-                    <li @click="contactSelected(indice)" v-if="elemento.visible" v-for='(elemento, indice) in contacts'>
+                    <li @click="contactSelected(indice)" v-if="elemento.visible" v-for='(elemento, indice) in contacts'  :class="dark">
                         <div class="open-contacts">
 
                             <img class="img-contacts" :src="elemento.src">
@@ -100,16 +112,20 @@
 
         <!-- .container right -->
         <div class="right">
-            <div  class="header-right">
-                <div class="box-selected">
+            <div  class="header-right"  :class="dark">
+                <div class="box-selected"  :class="dark">
                     <img class="img-contact" :src=" contacts[contatore].src "></img>
                     <div class="title-chat">
                         <p style="font-weight: 600;">
                             {{  contacts[contatore].name    }}</p>
-                        <p style="color: #b1b1b1;">Ultimo accesso...</p>
+                        <div v-if="contacts[contatore].staScrivendo">Sta scrivendo...</div>
+                        <div v-else-if="contacts[contatore].online">Online...</div>
+                        <p v-else style="color: #b1b1b1;">
+                            ultimo accesso ... {{   timingAccess    }}
+                        </p>
                     </div>
                 </div>
-                <div class="open-icon">
+                <div class="open-icon"  :class="dark">
                     <ul class="menu-open-icon">
                         <li>
                             <i class="fas fa-search"></i>
@@ -125,18 +141,18 @@
             </div>
             
             <!--*CHAT-->
-            <div class="container-message">
+            <div class="container-message"  :class="displayDark">
                 <div class="messages">
                     <!--il v if é relativo alla funzione contactSelected-->
                     <div  class="message with-dropdown" v-for=" ( key, index ) in contacts[contatore].message "
                         :class="( key.status == 'sent') ? 'sent' : 'received'">
                         {{ key.text }}
                         <!-- <div :class="{active:attivo == index}" class="dropdown-menu"> -->
+                            <!-- <div :class="attivo == true  ?'active' : '' " class="dropdown-menu"> -->
+                            <!-- <div  :class="{active : attivo === index }" class="dropdown-menu"> -->
                             
-                        <!-- <div  :class="{active : attivo === index }" class="dropdown-menu"> -->
                         
-                            <div :class="key.attivo == true  ? 'active' : '' " class="dropdown-menu">
-                        <!-- <div :class="attivo == true  ?'active' : '' " class="dropdown-menu"> -->
+                        <div :class="key.attivo == true  ? 'active' : '' " class="dropdown-menu">
 
                             <ul  class="submenu-drop">
                                 <li>Info messaggio</li>
@@ -146,7 +162,7 @@
                             </ul>
                         </div>
                         <div class="time-received">
-                            {{ key.date }}
+                        {{ key.date }}
                             <p class="info">
                                 <!-- -->
                                 <!-- <i @click="attivo = index" class="fas fa-chevron-down"></i> -->
@@ -211,7 +227,7 @@
                 <!--_FOOT-->
             </div>
 
-            <div class="footer-message">
+            <div class="footer-message" :class="dark">
                 <i class="fas fa-smile"></i>
                 <i id="ruota" class="fas fa-paperclip"></i>
                 <input v-model="prova" @keyup="changeMicrophone" id="input-enter" @keyup.enter="addMessage" type="text"

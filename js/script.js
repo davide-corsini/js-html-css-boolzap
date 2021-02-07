@@ -10,8 +10,13 @@ var app = new Vue({
             }
 
         ],
+        timingAccess: moment().locale('it').format('LT'),
         paperPlane: '',
+        dark: false,
         attivo: false,
+        attivo2: false,
+        displayDark: false,
+        movement: false,
         filtro: '',
         prova: '',
         contatore: 0,
@@ -23,21 +28,22 @@ var app = new Vue({
                 src: 'img/ema.jpg',
                 visible: true,
                 staScrivendo: false,
+                online: false,
                 message: [
                     {
-                        date: '10/01/2020 15:30:55',
+                        date: '15:30:55',
                         text: 'ciao',
                         status: 'sent',
                         attivo: false
                     },
                     {
-                        date: '10/01/2020 15:30:55',
+                        date: '15:30:55',
                         text: 'come',
                         status: 'received',
                         attivo: false
                     },
                     {
-                        date: '10/01/2020 15:58:55',
+                        date: '15:58:55',
                         text: 'Dajeeeeee',
                         status: 'sent',
                         attivo: false
@@ -63,23 +69,25 @@ var app = new Vue({
                 src: 'img/yuri.jpg',
                 visible: true,
                 staScrivendo: false,
+                online: false,
+
                 message: [
                     {
-                        date: '10/01/2020 15:30:55',
+                        date: '15:30:55',
                         text: 'ciao',
                         status: 'sent',
                         attivo: false
 
                     },
                     {
-                        date: '10/01/2020 15:30:55',
+                        date: '15:30:55',
                         text: 'come',
                         status: 'received',
                         attivo: false
 
                     },
                     {
-                        date: '10/01/2020 15:30:55',
+                        date: '15:30:55',
                         text: 'Stai con i butei',
                         status: 'sent',
                         attivo: false
@@ -106,23 +114,25 @@ var app = new Vue({
                 src: 'img/cri.jpg',
                 visible: true,
                 staScrivendo: false,
+                online: false,
+
                 message: [
                     {
-                        date: '10/01/2020 15:30:55',
+                        date: '15:30:55',
                         text: 'ciao',
                         status: 'sent',
                         attivo: false
 
                     },
                     {
-                        date: '10/01/2020 15:30:55',
+                        date: '15:30:55',
                         text: 'come',
                         status: 'received',
                         attivo: false
 
                     },
                     {
-                        date: '10/01/2020 15:30:55',
+                        date: '15:30:55',
                         text: 'Noleggiato il pullman per Lugano',
                         status: 'sent',
                         attivo: false
@@ -149,23 +159,25 @@ var app = new Vue({
                 src: 'img/bif.jpg',
                 visible: true,
                 staScrivendo: false,
+                online: false,
+
                 message: [
                     {
-                        date: '10/01/2020 15:30:55',
+                        date: '15:30:55',
                         text: 'ciao',
                         status: 'sent',
                         attivo: false
 
                     },
                     {
-                        date: '10/01/2020 15:30:55',
+                        date: '15:30:55',
                         text: 'come',
                         status: 'received',
                         attivo: false
 
                     },
                     {
-                        date: '10/01/2020 15:30:55',
+                        date: '15:30:55',
                         text: 'Sei uscito con la tipa?',
                         status: 'sent',
                         attivo: false
@@ -192,22 +204,24 @@ var app = new Vue({
                 src: 'img/papaya.jpg',
                 visible: true,
                 staScrivendo: false,
+                online: false,
+
                 message: [
                     {
-                        date: '10/01/2020 15:30:55',
+                        date: '15:30:55',
                         text: 'ciao',
                         status: 'sent',
                         attivo: false
 
                     },
                     {
-                        date: '10/01/2020 15:30:55',
+                        date: '15:30:55',
                         text: 'come',
                         status: 'receveid',
                         attivo: false
                     },
                     {
-                        date: '10/01/2020 15:30:55',
+                        date: '15:30:55',
                         text: 'Non fare il genovese, offri l\'ape',
                         status: 'sent',
                         attivo: false
@@ -234,6 +248,8 @@ var app = new Vue({
                 src: 'img/tina.jpg',
                 visible: true,
                 staScrivendo: false,
+                online: false,
+
                 message: [
                     {
                         date: '15:30:55',
@@ -277,6 +293,8 @@ var app = new Vue({
                 src: 'img/jack.jpg',
                 visible: true,
                 staScrivendo: false,
+                online: false,
+
                 message: [
                     {
                         date: '15:30:55',
@@ -322,6 +340,8 @@ var app = new Vue({
         contactSelected(indexFunzione){
             
             this.contatore = indexFunzione;
+
+
         },
         changeMicrophone(){
             //if there is almost 1 charact in input "scrivi un messaggio" ? none to microphone, block to paper-plane
@@ -335,7 +355,7 @@ var app = new Vue({
             if(this.prova.length > 0){
                 this.paperPlane ='';
                 const newMessage = {
-                    date: '15:30:55',
+                    date: this.timingAccess,
                     text: this.prova,
                     status: 'sent',
                     attivo: false
@@ -343,24 +363,35 @@ var app = new Vue({
                 this.contacts[this.contatore].message.push(newMessage);
                 this.prova = '';
                 
+                this.contacts[this.contatore].staScrivendo = true;
+                this.contacts[this.contatore].online = true;
                 //I can write this function in two different methods..
                 setTimeout(() => {
+                    setTimeout(() => {
+                        this.contacts[this.contatore].online = false;
+                    },2000);
                     this.receivedMessage()
-                }, 3000);
-
+                }, 5000);
+                
+                
+                
+                
                 // setTimeout(this.receivedMessage, 3000);
             }     
         },
         receivedMessage(){
-
+            
             const mexRicevuto = {
-                date: '15:30:55',
+                date: this.timingAccess,
                 text: 'Boolean',
                 status: 'received',
                 attivo: false
             }
             this.contacts[this.contatore].message.push(mexRicevuto);
             this.prova = '';
+            this.contacts[this.contatore].staScrivendo = false;
+            // this.contacts[this.contatore].online = false
+
 
         },
         filtroRicerca(){
@@ -389,8 +420,6 @@ var app = new Vue({
             this.contacts[this.contatore].message[index].attivo = !this.contacts[this.contatore].message[index].attivo; 
             // this.attivo = this.contacts[this.contatore].message[index];
             // console.log(this.attivo);
-
-
         
                 // return this.contacts.map((element) => {
                 //     console.log(element, 'io sono element');
@@ -401,28 +430,18 @@ var app = new Vue({
                 // })
                 // console.log(arrayProva);
             
-                let arrayProva =  this.contacts.map(element => {
+
+
+                // let arrayProva =  this.contacts.map(element => {
                     
-                    let {   message   } = element;
-                    return {
-                        ...element,
-                        ciao: 'prova'
-                    }
+                //     let {   message   } = element;
+                //     return {
+                //         ...element,
+                //         ciao: 'prova'
+                //     }
                     
-                })
-                console.log(arrayProva);
-
-
-
-
-
-
-
-
-
-
-
-
+                // })
+                // console.log(arrayProva);
 
         },
         deleteMessage(indice){
@@ -437,6 +456,19 @@ var app = new Vue({
             //entra in contatti dell'utente selezionato vai nel messaggi
             console.log(this.toggleClass);
 
+        },
+        darkMode(){
+            this.attivo2 = !this.attivo2;
+            if(this.attivo2 == true){
+                this.dark = 'black';
+                this.displayDark = 'dark-display';
+                this.movement = 'move';
+            }else if(this.attivo2 == false){
+                this.dark = false;
+                this.displayDark =false;
+                this.movement = false;
+            }
+            
         }
     }  
     

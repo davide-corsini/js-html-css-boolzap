@@ -286,7 +286,6 @@ ul.menu-open-icon li i{
 .right div.container-message{
     width: 100%;
     height: calc(100% - 70px );
-    background-color: green;
     background-image: url('../img/mine.jpg');
     overflow-y: scroll;
 }
@@ -424,7 +423,7 @@ ul.submenu-drop li{
     font-size: 13px;
 }
 ul.submenu-drop li:hover{
-    background-color: red;
+    background-color: rgba(92, 99, 96, 0.226);
     cursor: pointer;
 }
 p.info{
@@ -435,3 +434,84 @@ div.time-received:hover p.info{
     display: inline-block;
 }
 
+
+/* dark mode */
+
+.right div.container-message.dark-display{
+    background-image: url('../img/dmode.jpg');
+    background-size: cover;
+}
+
+.left div.header-left.black{
+    background-color: black;
+    /* debug */
+    color: white;
+    /* debug */
+}
+
+.left div.left-disclaimer.black{
+    background-color: black;
+    /* debug */
+    color: white;
+    /* debug */
+}
+
+.left div.left-searchbar.black{
+    background-color: black;
+}
+
+div.left-searchbar div.box-search.black{
+    background-color: black;
+    color: white;
+}
+
+div.left-searchbar input.black{
+    background-color: black;
+    color: white;
+}
+
+.left div.contacts.black{
+    background-color: black;
+    color: blanchedalmond;
+}
+
+ul.menu-contacts.black li:hover{
+    color: black;
+    background-color: rgb(27, 83, 85);
+}
+
+.right div.header-right.black{
+    background-color: black;
+
+    color: white;
+}
+
+.right div.footer-message.black{
+    background-color: black;
+}
+
+.dark-btn{
+    display: flex;
+    margin-left: 20%;
+    width: 20%;
+    height: 20px;
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid lightslategray;
+    align-items: center;
+    position: relative;
+}
+
+.active-dark{
+    height: 19px;
+    width: 19px;
+    background-color: greenyellow;
+    border-radius: 50%;
+    
+}
+
+.active-dark.move{
+    transition:cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: absolute;
+    right: 0
+}
