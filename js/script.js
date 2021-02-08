@@ -359,37 +359,48 @@ var app = new Vue({
         },
         addMessage(index){
             
-            
-                //creation new message from me
-                if(this.prova.length > 0){
-                    this.greenCheck = 'green';
-                    this.paperPlane ='';
-                    const newMessage = {
-                        date: this.timingAccess,
-                        text: this.prova,
-                        status: 'sent',
-                        attivo: false
-                    };
-                    this.contacts[index].message.push(newMessage);
-                    this.prova = '';
-    
-    
+                setTimeout(() => {
                     this.contacts[index].online = true;
                     
-                    this.contacts[index].staScrivendo = true;
-                    //I can write this function in two different methods..
-                    setTimeout(() => {
+                    
+                },100);
+                setTimeout(() => {
+
+                    if(this.prova.length > 0){
+                        this.greenCheck = 'green';
+                        this.paperPlane ='';
+                        const newMessage = {
+                            date: this.timingAccess,
+                            text: this.prova,
+                            status: 'sent',
+                            attivo: false
+                        };
+                    //creation new message from me
+                        this.contacts[index].message.push(newMessage);
+                        this.prova = '';
+        
+        
                         
+                        this.contacts[index].staScrivendo = true;
+                        //I can write this function in two different methods..
+                        
+                        
+                    }     
+                },1000);
+                setTimeout(() => {
+                    setTimeout(() => {
+
+                        this.contacts[index].online = true;
                         setTimeout(() => {
                             this.contacts[index].online = false;
-                        },3000);
 
-                        this.receivedMessage(index);
+                        });
+                    },1000);
                     
-                    }, 5000);
+                    this.receivedMessage(index);
                     
-                }     
-        },
+                }, 5000);
+            },
         receivedMessage(index){
             //Creation new message receive from other contact
             const mexRicevuto = {
