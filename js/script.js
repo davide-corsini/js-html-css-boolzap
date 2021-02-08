@@ -10,18 +10,19 @@ var app = new Vue({
             }
 
         ],
+        ultimoAccesso: '',
+        messaggiEliminati: [],
+        notify: false, //cambio campana
         timingAccess: moment().locale('it').format('LT'),
         paperPlane: '',
-        dark: false,
-        attivo: false,
-        attivo2: false,
-        displayDark: false,
-        movement: false,
-        filtro: '',
-        prova: '',
-        contatore: 0,
-        resultName: 'Emanuele',
-        resultImg: 'img/ema.jpg',
+        dark: false,    //dark mode to implementation of background color black;
+        attivo2: false, //activation of dark mode
+        displayDark: false, //activation of display as background-image
+        movement: false,    //movement of my circle for the dark mode
+        filtro: '', //filter for research of contacts
+        prova: '',  //variable for v-model for create new message from me
+        contatore: 0,  //fondamental counter for the code for selection of contact selected
+        
         contacts: [
             {
                 name: 'Emanuele',
@@ -335,6 +336,12 @@ var app = new Vue({
             }
         ]
     },
+    mounted(){
+        this.messaggiEliminati = this.contacts;
+        console.log(this.messaggiEliminati, 'io sono messaggi eliminati');
+
+        console.log(this.contacts, 'io sono contacts nel mounted' );
+    },
     methods:{
 
         contactSelected(indexFunzione){
@@ -350,46 +357,49 @@ var app = new Vue({
             }
             
         },
-        addMessage(){
-
-            if(this.prova.length > 0){
-                this.paperPlane ='';
-                const newMessage = {
-                    date: this.timingAccess,
-                    text: this.prova,
-                    status: 'sent',
-                    attivo: false
-                };
-                this.contacts[this.contatore].message.push(newMessage);
-                this.prova = '';
-                
-                this.contacts[this.contatore].staScrivendo = true;
-                this.contacts[this.contatore].online = true;
-                //I can write this function in two different methods..
-                setTimeout(() => {
-                    setTimeout(() => {
-                        this.contacts[this.contatore].online = false;
-                    },2000);
-                    this.receivedMessage()
-                }, 5000);
-                
-                
-                
-                
-                // setTimeout(this.receivedMessage, 3000);
-            }     
-        },
-        receivedMessage(){
+        addMessage(index){
             
+            
+                //creation new message from me
+                if(this.prova.length > 0){
+                    this.paperPlane ='';
+                    const newMessage = {
+                        date: this.timingAccess,
+                        text: this.prova,
+                        status: 'sent',
+                        attivo: false
+                    };
+                    this.contacts[index].message.push(newMessage);
+                    this.prova = '';
+    
+    
+                    this.contacts[index].online = true;
+                    
+                    this.contacts[index].staScrivendo = true;
+                    //I can write this function in two different methods..
+                    setTimeout(() => {
+                        
+                        setTimeout(() => {
+                            this.contacts[index].online = false;
+                        },3000);
+
+                        this.receivedMessage(index);
+                    
+                    }, 3000);
+                    
+                }     
+        },
+        receivedMessage(index){
+            //Creation new message receive from other contact
             const mexRicevuto = {
                 date: this.timingAccess,
-                text: 'Boolean',
+                text: 'ok',
                 status: 'received',
                 attivo: false
             }
-            this.contacts[this.contatore].message.push(mexRicevuto);
+            this.contacts[index].message.push(mexRicevuto);
             this.prova = '';
-            this.contacts[this.contatore].staScrivendo = false;
+            this.contacts[index].staScrivendo = false;
             // this.contacts[this.contatore].online = false
 
 
@@ -412,43 +422,22 @@ var app = new Vue({
             });
         },
         toggleClass(index){
-            
-            // this.attivo = index;
-
 
             //qui gli sto dicendo entra in array di contatore clicckato vai nei messaggi con index corrispondente, vai in attivo e fa si che attivo é uguale alla sua stessa negazione
             this.contacts[this.contatore].message[index].attivo = !this.contacts[this.contatore].message[index].attivo; 
-            // this.attivo = this.contacts[this.contatore].message[index];
-            // console.log(this.attivo);
-        
-                // return this.contacts.map((element) => {
-                //     console.log(element, 'io sono element');
-                //     return {
-                //         ...element,
-                //         ciao: 'provaaaaaaaaaaaaaaaaaaaaaaaaaaa'
-                //     }
-                // })
-                // console.log(arrayProva);
             
-
-
-                // let arrayProva =  this.contacts.map(element => {
-                    
-                //     let {   message   } = element;
-                //     return {
-                //         ...element,
-                //         ciao: 'prova'
-                //     }
-                    
-                // })
-                // console.log(arrayProva);
-
         },
         deleteMessage(indice){
-
+            this.messaggiEliminati.push(this.contacts[this.contatore].message[indice]);
+            console.log(this.messaggiEliminati);
             this.contacts[this.contatore].message.splice(indice, 1);
-            // this.contacts[this.contatore].message.slice(index, 1);
 
+            console.log(this.contacts, 'contatcts post delete');
+
+            this.ultimoAccesso = this.messaggiEliminati[this.contatore].message[this.messaggiEliminati[this.contatore].message.length - 1].data;
+            console.log(this.ultimoAccesso);
+            
+            console.log(this.messaggiEliminati, "messaggi eliminati function delete");
         },
         proviamo(index){
 
@@ -458,53 +447,25 @@ var app = new Vue({
 
         },
         darkMode(){
+            //ON OFF DARK MODE
             this.attivo2 = !this.attivo2;
             if(this.attivo2 == true){
                 this.dark = 'black';
                 this.displayDark = 'dark-display';
                 this.movement = 'move';
-            }else if(this.attivo2 == false){
+            }else{
                 this.dark = false;
                 this.displayDark =false;
                 this.movement = false;
             }
             
+        },
+        activeNotify(){
+            this.notify = !this.notify;
         }
     }  
     
 });
 
-// const iconeEcolori = icons.map((element, index) => {
-//     const { type } = element;
-//     //_adesso che sono nel map cosa devo ritornare?
-//     //_ devo ritornare i colori
-//     return {
-//         ...element,
-//         colore: getColor(type)
-//     }
-// });
 
 
-
-//controlla array e metti tutto a falso 
-// this.contacts.forEach(element => {
-//     if(element.visible == true){
-//         element.visible = false;
-//     }
-//     //dopo che hai messo a falso, dai vero a quello cliccato
-    
-// });
-// this.contacts[indexFunzione].visible = true;
-// //passo qua dentro la funzione per evitare di ripetere un altro click in html
-// this.imgContact();
-// imgContact(){
-//     this.contacts.forEach(element => {
-//         if (element.visible == true) {
-//             this.resultName = element.name;
-//             this.resultImg = element.src;
-//         }
-//         //dopo che hai messo a falso, dai vero a quello cliccato
-//         return this.resultImg + this.resultName;
-//     });
-
-// 

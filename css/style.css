@@ -505,13 +505,27 @@ ul.menu-contacts.black li:hover{
 .active-dark{
     height: 19px;
     width: 19px;
-    background-color: greenyellow;
-    border-radius: 50%;
+    background-color: #04b430;
+    padding: 5px;
+    border-bottom-left-radius: 50%;
+    border-top-left-radius: 50%;
     
 }
 
 .active-dark.move{
-    transition:cubic-bezier(0.25, 0.46, 0.45, 0.94);
     position: absolute;
-    right: 0
+    right: 0;
+    border-bottom-left-radius: 0%;
+    border-top-left-radius: 0%;
+    border-bottom-right-radius: 50%;
+    border-top-right-radius: 50%;
+}
+
+
+.bell{
+    cursor: pointer;
+}
+
+.bell:hover{
+    color: rgba(0, 174, 255, 0.733);
 }

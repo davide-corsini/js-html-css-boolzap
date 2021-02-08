@@ -32,7 +32,7 @@
                         {{element.name}}
                     </div>
 
-                    <div @click="darkMode" class="dark-btn" :class="attivo2 == true  ? 'active' : '' ">
+                    <div @click="darkMode" class="dark-btn" >
                         <div :class="movement"  class="active-dark" >
 
                         </div>
@@ -50,10 +50,13 @@
             <div class="left-disclaimer"  :class="dark">
                 <div class="box-disclaimer">
 
-                    <div class="circle"><i class="fas fa-bell-slash" style="color: #8edafc;"></i></div>
+                    <div class="circle">
+                        <i v-if="notify" class="far fa-bell" style="color: #8edafc;"></i>
+                        <i v-else class="fas fa-bell-slash" style="color: #8edafc;"></i>
+                    </div>
                     <div class="notifications">
                         Ricevi notifiche di nuovi messaggi
-                        <p>Attiva notifiche desktop</p>
+                        <p class="bell" @click="activeNotify" style="cursor: pointer;">Attiva notifiche desktop</p>
                     </div>
                 </div>
             </div>
@@ -93,7 +96,10 @@
                                     <i class="fas fa-check first"></i>
                                     <i class="fas fa-check second"></i>
                                 </div>
-                                <p class="preview">
+                                <p v-if="elemento.staScrivendo">
+                                    Sta scrivendo...
+                                </p>
+                                <p v-else class="preview">
                                     {{elemento.message[elemento.message.length-1].text}}
                                 </p>
                             </div>
@@ -121,7 +127,19 @@
                         <div v-if="contacts[contatore].staScrivendo">Sta scrivendo...</div>
                         <div v-else-if="contacts[contatore].online">Online...</div>
                         <p v-else style="color: #b1b1b1;">
-                            ultimo accesso ... {{   timingAccess    }}
+                            
+                                <span v-if=" contacts[contatore].message[contacts[contatore].message.length-1].status == 'received'  ">
+    
+                                    ultimo accesso ... {{ messaggiEliminati[contatore].message[messaggiEliminati[contatore].message.length-1].date  }}
+    
+                                </span>
+                                
+                                <span v-else>
+                                    ultimo accesso ... {{ timingAccess }}
+                                </span>
+
+                                
+
                         </p>
                     </div>
                 </div>
@@ -230,7 +248,7 @@
             <div class="footer-message" :class="dark">
                 <i class="fas fa-smile"></i>
                 <i id="ruota" class="fas fa-paperclip"></i>
-                <input v-model="prova" @keyup="changeMicrophone" id="input-enter" @keyup.enter="addMessage" type="text"
+                <input v-model="prova" @keyup="changeMicrophone" id="input-enter" @keyup.enter="addMessage(contatore)" type="text"
                     placeholder="Scrivi un messaggio">
                 <i class="fas fa-microphone" :class="paperPlane"></i>
 
