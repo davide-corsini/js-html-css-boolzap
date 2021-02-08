@@ -10,6 +10,7 @@ var app = new Vue({
             }
 
         ],
+        greenCheck: false,
         ultimoAccesso: '',
         messaggiEliminati: [],
         notify: false, //cambio campana
@@ -337,7 +338,6 @@ var app = new Vue({
         ]
     },
     mounted(){
-        this.messaggiEliminati = this.contacts;
         console.log(this.messaggiEliminati, 'io sono messaggi eliminati');
 
         console.log(this.contacts, 'io sono contacts nel mounted' );
@@ -362,6 +362,7 @@ var app = new Vue({
             
                 //creation new message from me
                 if(this.prova.length > 0){
+                    this.greenCheck = 'green';
                     this.paperPlane ='';
                     const newMessage = {
                         date: this.timingAccess,
@@ -385,7 +386,7 @@ var app = new Vue({
 
                         this.receivedMessage(index);
                     
-                    }, 3000);
+                    }, 5000);
                     
                 }     
         },

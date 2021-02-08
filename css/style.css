@@ -309,13 +309,17 @@ ul.menu-open-icon li i{
 }
 
 .check{
-    width: 100%;
+    width: 30%;
+    height: 100%;
     position: relative;
     display: flex;
     flex-direction: row;
+    align-items: center;
     justify-content: flex-end;
 }
-
+.green{
+    color: #59ad00;
+}
 .check i{
     color: #218cf2;
 }
@@ -324,13 +328,15 @@ ul.menu-open-icon li i{
     margin-right: 10px;
     font-size: 10px;
     color: #6b8185;
+    
 }
 
 .time-received{
     width: 100%;
     display: flex;
-    justify-content: flex-end;
-    font-size: 10px;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 8px;
     color: #6b8185;
 }
 
@@ -430,8 +436,13 @@ p.info{
     display: none;
 }
 
-div.time-received:hover p.info{
-    display: inline-block;
+
+
+div.message:hover p.info{
+    display: flex;
+}
+div.message:hover .check{
+    display: none;
 }
 
 
@@ -529,3 +540,4 @@ ul.menu-contacts.black li:hover{
 .bell:hover{
     color: rgba(0, 174, 255, 0.733);
 }
+

@@ -130,8 +130,14 @@
                             
                                 <span v-if=" contacts[contatore].message[contacts[contatore].message.length-1].status == 'received'  ">
     
-                                    ultimo accesso ... {{ messaggiEliminati[contatore].message[messaggiEliminati[contatore].message.length-1].date  }}
+                                    ultimo accesso ... {{ contacts[contatore].message[contacts[contatore].message.length-1].date  }}
     
+                                </span>
+
+                                <span v-else-if=" contacts[contatore].message[contacts[contatore].message.length-1].status == 'sent'  ">
+                                
+                                    ultimo accesso ... {{ contacts[contatore].message[contacts[contatore].message.length-1].date }}
+                                
                                 </span>
                                 
                                 <span v-else>
@@ -168,8 +174,20 @@
                         <!-- <div :class="{active:attivo == index}" class="dropdown-menu"> -->
                             <!-- <div :class="attivo == true  ?'active' : '' " class="dropdown-menu"> -->
                             <!-- <div  :class="{active : attivo === index }" class="dropdown-menu"> -->
-                            
-                        
+                                <div class="time-received">
+                                {{ key.date }}
+                                    <p class="info">
+                                        <!-- -->
+                                        <!-- <i @click="attivo = index" class="fas fa-chevron-down"></i> -->
+                                        <i @click="toggleClass( index )" class="fas fa-chevron-down"></i>                     
+                                    </p>
+                                    <div>
+                                        <div  v-if=" key.status == 'sent' " class="check">
+                                            <i class="fas fa-check first" :class="greenCheck"></i>
+                                            <i class="fas fa-check second" :class="greenCheck"></i>
+                                        </div>
+                                    </div>
+                                </div>
                         <div :class="key.attivo == true  ? 'active' : '' " class="dropdown-menu">
 
                             <ul  class="submenu-drop">
@@ -178,14 +196,6 @@
                                 <li @click="deleteMessage( index )">Elimina messaggio</li>
 
                             </ul>
-                        </div>
-                        <div class="time-received">
-                        {{ key.date }}
-                            <p class="info">
-                                <!-- -->
-                                <!-- <i @click="attivo = index" class="fas fa-chevron-down"></i> -->
-                                <i @click="toggleClass( index )" class="fas fa-chevron-down"></i>                     
-                            </p>
                         </div>
                     </div>
                     <!-- <div class="message sent">ciao lele
