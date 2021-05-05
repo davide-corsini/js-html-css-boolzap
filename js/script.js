@@ -128,28 +128,28 @@ var app = new Vue({
                     },
                     {
                         date: '15:30:55',
-                        text: 'come',
+                        text: 'come stai?',
                         status: 'received',
                         attivo: false
 
                     },
                     {
                         date: '15:30:55',
-                        text: 'Noleggiato il pullman per Lugano',
+                        text: 'tutto bene, te invece?',
                         status: 'sent',
                         attivo: false
 
                     },
                     {
                         date: '15:30:55',
-                        text: 'comedffdfdafdasfffffffffffffffffffffffffffffffff',
+                        text: 'Sto una favola',
                         status: 'received',
                         attivo: false
 
                     },
                     {
                         date: '18:30:55',
-                        text: 'asddfsdffa',
+                        text: 'perfetto sono contento',
                         status: 'sent',
                         attivo: false
 
@@ -180,21 +180,21 @@ var app = new Vue({
                     },
                     {
                         date: '15:30:55',
-                        text: 'Sei uscito con la tipa?',
+                        text: 'Sei uscito oggi?',
                         status: 'sent',
                         attivo: false
 
                     },
                     {
                         date: '15:30:55',
-                        text: 'fffffffffffffffffffffffffffffffffffffffffff',
+                        text: 'alla fine si, te invece, che hai fatto?',
                         status: 'received',
                         attivo: false
 
                     },
                     {
                         date: '18:30:55',
-                        text: 'Non mi funziona Javascript',
+                        text: 'Sono rimasto a casa a guardare un film',
                         status: 'sent',
                         attivo: false
 
@@ -231,14 +231,14 @@ var app = new Vue({
                     },
                     {
                         date: '15:30:55',
-                        text: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+                        text: 'sicuramente',
                         status: 'received',
                         attivo: false
 
                     },
                     {
                         date: '18:30:55',
-                        text: 'Non mi funziona Javascript',
+                        text: 'Becchiamoci in giro dai ',
                         status: 'sent',
                         attivo: false
 
@@ -262,28 +262,28 @@ var app = new Vue({
                     },
                     {
                         date: '15:30:55',
-                        text: 'come',
+                        text: 'come stai?',
                         status: 'received',
                         attivo: false
 
                     },
                     {
                         date: '15:30:55',
-                        text: 'ddddddddddddddddddddddddddddddddddddd il mondo',
+                        text: 'tutto una meraviglia te invece',
                         status: 'sent',
                         attivo: false
 
                     },
                     {
                         date: '15:30:55',
-                        text: 'dddddddddddddddd',
+                        text: 'sta andando alla grande',
                         status: 'received',
                         attivo: false
 
                     },
                     {
                         date: '18:30:55',
-                        text: 'Non mi fasfddddddddfdfasdfafdasfdasfaunziona Javascript',
+                        text: 'Adesso devo staccare risentiamoci più avanti',
                         status: 'sent',
                         attivo: false
 
@@ -307,7 +307,7 @@ var app = new Vue({
                     },
                     {
                         date: '15:30:55',
-                        text: 'come',
+                        text: 'ciao Davide, hai bisogno ?',
                         status: 'received',
                         attivo: false
 
@@ -321,14 +321,14 @@ var app = new Vue({
                     },
                     {
                         date: '15:30:55',
-                        text: 'cfadfasfasdfasdfome',
+                        text: 'ahahahah',
                         status: 'received',
                         attivo: false
 
                     },
                     {
                         date: '18:30:55',
-                        text: 'Non mi fuadsfdasfdasfdasdfasfanziona Javascript',
+                        text: 'Grazie per il tuo aiuto',
                         status: 'sent',
                         attivo: false
 
